@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 5 - Monthly Examination</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        
+        /* ✅ Watermark (always visible, not falling behind cards) */
+        .watermark {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .watermark span {
+            transform: rotate(-25deg);
+            font-size: 64px;
+            font-weight: 900;
+            color: rgba(0,0,0,.10);
+            letter-spacing: .6px;
+            mix-blend-mode: multiply;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        /* ✅ Ensure content is normal layer (no higher than watermark) */
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 22px;
+            margin-bottom: 3px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .student-info div span {
+            display: inline-block;
+            border-bottom: 1px dotted #333;
+            min-width: 180px;
+            margin-left: 5px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            margin: 20px 0 15px 0;
+        }
+        
+        .question {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .question-header {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .marks-badge {
+            float: right;
+            background: #28a745;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        .sub-question {
+            margin: 8px 0 8px 20px;
+            line-height: 1.9;
+        }
+        
+        .english {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .blank-line {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 1px dotted #333;
+            margin: 0 3px;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #333;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .wrap {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Watermark -->
+    <div class="watermark">
+        <span>Md Kayes<br>Learn to Enlight</span>
+    </div>
+    
+    <div class="wrap">
+        <!-- Header -->
+        <div class="header">
+            <h1>মাসিক পরীক্ষা</h1>
+            <h1>MONTHLY EXAMINATION</h1>
+            <h1 style="font-size: 18px; color: #555; margin-top: 5px;">পঞ্চম শ্রেণী (Class 5)</h1>
+        </div>
+        
+        <!-- Info -->
+        <div class="info-row">
+            <div><strong>সময় (Time):</strong> ৩৫ মিনিট (35 Minutes)</div>
+            <div><strong>পূর্ণমান (Total Marks):</strong> ৪০ (40)</div>
+        </div>
+        
+        <!-- Student Info -->
+        <div class="student-info">
+            <div>নাম (Name): <span></span></div>
+            <div>রোল (Roll): <span></span></div>
+            <div>শ্রেণী (Class): পঞ্চম (Five)</div>
+            <div>তারিখ (Date): <span></span></div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION A: MATH -->
+        <div class="section-title">বিভাগ ক: গণিত (SECTION A: MATHEMATICS) — ২৪ নম্বর (24 Marks)</div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১। ৫ অঙ্কের সবচেয়ে বড় সংখ্যা কোনটি যা ১২, ১৮, ২৪ এবং ৩০ দ্বারা বিভাজ্য হলে প্রতিবার ভাগশেষ ৮ থাকবে?
+                <br><span class="english">(What is the greatest number of 5 digits which will be divided by 12, 18, 24 and 30, with 8 as remainder each time?)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ২। পঞ্চম শ্রেণীর ১৮ জন ছেলে এবং ২৭ জন মেয়ের মধ্যে সমানভাবে ভাগ করে দেওয়ার জন্য সর্বনিম্ন কতটি চকলেট লাগবে?
+                <br><span class="english">(What is the minimum number of chocolates needed to distribute equally among 18 boys and 27 girls of class Five?)</span>
+                <span class="marks-badge">[২ নম্বর / 2 Marks]</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৩। সর্বাধিক কতজন শিক্ষার্থীর মধ্যে ২২টি আম ও ৬৬টি লিচু সমানভাবে ভাগ করে দেওয়া যাবে?
+                <br><span class="english">(Among how many students maximum can 22 mangoes and 66 litchis be distributed equally?)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৪। একটি রাস্তায় ১২ মিটার পরপর গাছ ও ২০ মিটার পরপর ল্যাম্পপোস্ট আছে। রাস্তার শুরুতে গাছ এবং ল্যাম্পপোস্ট পাশাপাশি থাকলে কত মিটার পরপর গাছ এবং ল্যাম্পপোস্ট পুনরায় পাশাপাশি থাকবে?
+                <br><span class="english">(On a road, there are trees every 12 meters and lampposts every 20 meters. If at the beginning a tree and lamppost are side by side, after how many meters will they be side by side again?)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৫। একটি বাড়িতে ৪২টি আম ও ১০৫টি লিচু আছে।
+                <br><span class="english">(A house has 42 mangoes and 105 litchis.)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর / 2 Marks]</strong> সর্বাধিক কতজন শিক্ষার্থীর মধ্যে আম ও লিচু সমানভাবে ভাগ করে দেয়া যাবে?<br>
+                <span class="english">(Among how many students maximum can mangoes and litchis be distributed equally?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর / 2 Marks]</strong> প্রতেক শিক্ষার্থী কতটি করে আম ও লিচু পাবে?<br>
+                <span class="english">(How many mangoes and litchis will each student get?)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৬। কোয়া এবং মারুফের মাসিক পারিবারিক খরচ একরে ৭৫০০ টাকা। কোয়া অপেক্ষা মারুফের মাসিক খরচ ৫৬০০ টাকা বেশি। কোয়া ও মারুফ প্রত্যেকের মাসিক পারিবারিক খরচ কত?
+                <br><span class="english">(Koya and Maruf's combined monthly family expenses are 7500 taka. Maruf's monthly expenses are 5600 taka more than Koya's. What are their individual monthly family expenses?)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৭। রানি এবং বাসিরের কাছে একরে ৭৮০টি লিচু আছে। রানি অপেক্ষা বাসিরের কাছে ৬৪টি লিচু কম আছে। রানি এবং বাসির প্রত্যেকের কতটি করে লিচু আছে?
+                <br><span class="english">(Rani and Basir together have 780 litchis. Basir has 64 litchis less than Rani. How many litchis does each of them have?)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৮। নিচের হিসাবগুলো করো: (Solve the following calculations)
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক)</strong> ৬ − (৫৬ − ৮০) ÷ (২ × ৮) + ৫
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ)</strong> ৭ + [{ ৪৫ ÷ ৯ + ৩ } × {(১২ − ৭) × ২ − ৫ } − ১ ] ÷ ১৩
+            </div>
+            
+            <div class="sub-question">
+                <strong>গ)</strong> [{ ১০ × (১২ ÷ ৪ − ১) − ২} − {( ৬ × ৬ − ৬) ÷ ২ }] ÷ ৩
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION B: SCIENCE -->
+        <div class="section-title">বিভাগ খ: বিজ্ঞান (SECTION B: SCIENCE) — ৮ নম্বর (8 Marks)</div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৯। প্রকৃতিতে জীব কোথা থেকে শক্তি পায়? ব্যাখ্যা করো।
+                <br><span class="english">(Where do organisms in nature get energy from? Explain.)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১০। পরিবেশের বিভিন্ন উপাদানের ভারসাম্য রক্ষা করা প্রয়োজন কেন?
+                <br><span class="english">(Why is it necessary to maintain balance among different components of the environment?)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১১। উদ্ভিদ ও প্রাণী কীভাবের পরস্পর নির্ভরশীল? উদাহরণসহ লেখো।
+                <br><span class="english">(How are plants and animals interdependent? Write with examples.)</span>
+                <span class="marks-badge">[২ নম্বর / 2 Marks]</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION C: GENERAL KNOWLEDGE -->
+        <div class="section-title">বিভাগ গ: সাধারণ জ্ঞান (SECTION C: GENERAL KNOWLEDGE) — ৮ নম্বর (8 Marks)</div>
+        <div style="text-align: center; font-style: italic; margin-bottom: 10px; font-size: 14px;">
+            [শূন্যস্থান পূরণ করো / Fill in the Blanks]
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১২। ভাষা আন্দোলন ১৯৫২ সম্পর্কে নিচের শূন্যস্থান পূরণ করো:
+                <br><span class="english">(Fill in the blanks about Language Movement 1952:)</span>
+                <span class="marks-badge">[৮ × ১ = ৮ নম্বর / 8 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                ক) ভাষা আন্দোলনের সময় পূর্ব পাকিস্তানের গভর্নর ছিলেন <span class="blank-line"></span>।<br>
+                <span class="english">(The Governor of East Pakistan during Language Movement was <span class="blank-line"></span>)</span>
+            </div>
+            
+            <div class="sub-question">
+                খ) স্বাধীনতা যোদ্ধার সময় পূর্ব বাংলার গভর্নর ছিলেন <span class="blank-line"></span>।<br>
+                <span class="english">(During the independence war, the Governor of East Bengal was <span class="blank-line"></span>)</span>
+            </div>
+            
+            <div class="sub-question">
+                গ) ভাষা আন্দোলনের সময় পাকিস্তানের প্রধানমন্ত্রী ছিলেন <span class="blank-line"></span>।<br>
+                <span class="english">(The Prime Minister of Pakistan during Language Movement was <span class="blank-line"></span>)</span>
+            </div>
+            
+            <div class="sub-question">
+                ঘ) বিরল লাতেফের সময় পাকিস্তানের প্রধানমন্ত্রী ছিলেন <span class="blank-line"></span>।<br>
+                <span class="english">(During Biraj Latef's time, the Prime Minister of Pakistan was <span class="blank-line"></span>)</span>
+            </div>
+            
+            <div class="sub-question">
+                ঙ) পাকিস্তানের প্রথম সামরিক আইন জারিকারী ছিলেন <span class="blank-line"></span>।<br>
+                <span class="english">(The first martial law administrator of Pakistan was <span class="blank-line"></span>)</span>
+            </div>
+            
+            <div class="sub-question">
+                চ) তারিখ: ২১ ফেব্রুয়ারি, ১৯৫২ (<span class="blank-line"></span>, ১৩৫৮) - বৃহস্পতিবার (Thursday)।<br>
+                <span class="english">(Date: 21 February, 1952 (<span class="blank-line"></span>, 1358) - Thursday)</span>
+            </div>
+            
+            <div class="sub-question">
+                ছ) পাকিস্তান সরকার ঢাকায় <span class="blank-line"></span> ধারা জারি করে।<br>
+                <span class="english">(Pakistan government imposed Section <span class="blank-line"></span> in Dhaka)</span>
+            </div>
+            
+            <div class="sub-question">
+                জ) প্রথম শহীদ মিনার: <span class="blank-line"></span> ফেব্রুয়ারি, ১৯৫২ - মেডিকেল কলেজ হোস্টেল প্রাঙ্গণে নির্মিত।<br>
+                <span class="english">(First Shaheed Minar: <span class="blank-line"></span> February, 1952 - Built at Medical College Hostel premises)</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div style="font-weight: 600; font-size: 15px; margin-bottom: 5px;">
+                প্রশ্নপত্রের সমাপ্তি (End of Question Paper)
+            </div>
+            <div style="margin-top: 10px; color: #666;">
+                <strong>Md Kayes</strong><br>
+                <strong>Learn to Enlight</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
