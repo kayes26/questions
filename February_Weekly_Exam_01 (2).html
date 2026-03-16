@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 5 - February Weekly Exam 01</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        
+        /* ✅ Watermark (always visible, not falling behind cards) */
+        .watermark {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .watermark span {
+            transform: rotate(-25deg);
+            font-size: 64px;
+            font-weight: 900;
+            color: rgba(0,0,0,.10);
+            letter-spacing: .6px;
+            mix-blend-mode: multiply;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        /* ✅ Ensure content is normal layer (no higher than watermark) */
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 22px;
+            margin-bottom: 3px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .student-info div span {
+            display: inline-block;
+            border-bottom: 1px dotted #333;
+            min-width: 180px;
+            margin-left: 5px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            margin: 20px 0 15px 0;
+        }
+        
+        .question {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .question-header {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .marks-badge {
+            float: right;
+            background: #28a745;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        .sub-question {
+            margin: 8px 0 8px 20px;
+            line-height: 1.9;
+        }
+        
+        .english {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .blank-line {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 1px dotted #333;
+            margin: 0 3px;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #333;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .wrap {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Watermark -->
+    <div class="watermark">
+        <span>Md Kayes<br>Learn to Enlight</span>
+    </div>
+    
+    <div class="wrap">
+        <!-- Header -->
+        <div class="header">
+            <h1>ফেব্রুয়ারি সাপ্তাহিক পরীক্ষা ০১</h1>
+            <h1>FEBRUARY WEEKLY EXAM 01</h1>
+            <h1 style="font-size: 18px; color: #555; margin-top: 5px;">পঞ্চম শ্রেণী (Class 5)</h1>
+        </div>
+        
+        <!-- Info -->
+        <div class="info-row">
+            <div><strong>সময় (Time):</strong> ১৫ মিনিট (15 Minutes)</div>
+            <div><strong>পূর্ণমান (Total Marks):</strong> ২০ (20)</div>
+        </div>
+        
+        <!-- Student Info -->
+        <div class="student-info">
+            <div>নাম (Name): <span></span></div>
+            <div>রোল (Roll): <span></span></div>
+            <div>শ্রেণী (Class): পঞ্চম (Five)</div>
+            <div>তারিখ (Date): <span></span></div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION A: MATH -->
+        <div class="section-title">বিভাগ ক: গণিত (SECTION A: MATHEMATICS) — ১২ নম্বর (12 Marks)</div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১। একটি কারখানায় ৫ দিনে ৪৫ মিটার কাপড় তৈরি হয়। এখন নিচের প্রশ্নগুলোর উত্তর বের করো।
+                <br><span class="english">(A factory produces 45 meters of cloth in 5 days. Now find the answers to the following questions.)</span>
+                <span class="marks-badge">[৬ নম্বর / 6 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর / 2 Marks]</strong> ৮ দিনে কত মিটার কাপড় তৈরি হবে?<br>
+                <span class="english">(How many meters of cloth will be produced in 8 days?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর / 2 Marks]</strong> ৪০ দিনে ৩২০ মিটার কাপড় তৈরি হলে এর অর্ধেক সময়ে কত মিটার কাপড় তৈরি হবে?<br>
+                <span class="english">(If 320 meters of cloth is produced in 40 days, how many meters will be produced in half that time?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>গ) [২ নম্বর / 2 Marks]</strong> ১৫ দিনে ১৩৫ মিটার কাপড় তৈরি হলে ১০ দিনে কত মিটার কাপড় তৈরি হবে?<br>
+                <span class="english">(If 135 meters of cloth is produced in 15 days, how many meters will be produced in 10 days?)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ২। সাদিয়ার বাড়িতে যে পরিমাণ আটা আছে তা দিয়ে ৮ জনের ৩৬ দিন চলবে। যদি পরিবারে সদস্য সংখ্যা ১২ জন হয়, তাহলে এই পরিমাণ আটা দিয়ে কতদিন চলবে?
+                <br><span class="english">(The amount of flour Sadia's family has will last 8 people for 36 days. If the family has 12 members, how many days will this amount of flour last?)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৩। ৫ + {(১৮ − ১২) × (২৫ − ২০) + ৪০} ÷ ৩০ − ৬
+                <br><span class="english">(Solve: 5 + {(18 − 12) × (25 − 20) + 40} ÷ 30 − 6)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION B: SCIENCE -->
+        <div class="section-title">বিভাগ খ: বিজ্ঞান (SECTION B: SCIENCE) — ৪ নম্বর (4 Marks)</div>
+        <div style="text-align: center; font-style: italic; margin-bottom: 10px; font-size: 14px;">
+            [শূন্যস্থান পূরণ করো / Fill in the Blanks]
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৪। নিচের শূন্যস্থান পূরণ করো: (Fill in the following blanks)
+                <span class="marks-badge">[৪ × ১ = ৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                ক) অক্সিজেন (Oxygen): উদ্ভিদ <span class="blank-line"></span> প্রক্রিয়ায় অক্সিজেন তৈরি করে যা প্রাণী শ্বাস-প্রশ্বাসের জন্য ব্যবহার করে।<br>
+                <span class="english">(Oxygen: Plants produce oxygen through <span class="blank-line"></span> process which animals use for respiration.)</span>
+            </div>
+            
+            <div class="sub-question">
+                খ) কার্বন ডাইঅক্সাইড (Carbon dioxide): প্রাণী শ্বাস-প্রশ্বাসে <span class="blank-line"></span> ত্যাগ করে যা উদ্ভিদ সালোকসংশ্লেষণে ব্যবহার করে খাদ্য তৈরি করে।<br>
+                <span class="english">(Carbon dioxide: Animals release <span class="blank-line"></span> during respiration which plants use in photosynthesis to make food.)</span>
+            </div>
+            
+            <div class="sub-question">
+                গ) গুরুত্বপূর্ণ তথ্য (Important Information): উদ্ভিদ দিনের বেলা সালোকসংশ্লেষণ (Photosynthesis) প্রক্রিয়ায় সূর্যের আলো ব্যবহার করে খাদ্য তৈরি করে এবং <span class="blank-line"></span> তৈরি করে।<br>
+                <span class="english">(Important Information: Plants use sunlight during the day through Photosynthesis process to make food and produce <span class="blank-line"></span>.)</span>
+            </div>
+            
+            <div class="sub-question">
+                ঘ) কিন্তু রাতের বেলা উদ্ভিদ <span class="blank-line"></span> প্রক্রিয়ার জন্য অক্সিজেন গ্রহণ করে এবং কার্বন ডাইঅক্সাইড ত্যাগ করে।<br>
+                <span class="english">(But at night plants take oxygen for <span class="blank-line"></span> process and release carbon dioxide.)</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION C: GENERAL KNOWLEDGE -->
+        <div class="section-title">বিভাগ গ: সাধারণ জ্ঞান (SECTION C: GENERAL KNOWLEDGE) — ৪ নম্বর (4 Marks)</div>
+        <div style="text-align: center; font-style: italic; margin-bottom: 10px; font-size: 14px;">
+            [শূন্যস্থান পূরণ করো / Fill in the Blanks]
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৫। পূর্ব ও পশ্চিম পাকিস্তানের পার্থক্য সম্পর্কে নিচের শূন্যস্থান পূরণ করো:
+                <br><span class="english">(Fill in the blanks about differences between East and West Pakistan:)</span>
+                <span class="marks-badge">[৪ × ১ = ৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                ক) জনসংখ্যা (Population): পূর্ব পাকিস্তানের জনসংখ্যা ছিল <span class="blank-line"></span>% (সংখ্যাগরিষ্ঠ) এবং পশ্চিম পাকিস্তানের জনসংখ্যা ছিল ৪৪%।<br>
+                <span class="english">(Population: East Pakistan's population was <span class="blank-line"></span>% (majority) and West Pakistan's population was 44%.)</span>
+            </div>
+            
+            <div class="sub-question">
+                খ) ভাষা (Language): পূর্ব পাকিস্তানের ভাষা ছিল <span class="blank-line"></span>।<br>
+                <span class="english">(Language: The language of East Pakistan was <span class="blank-line"></span>.)</span>
+            </div>
+            
+            <div class="sub-question">
+                গ) অর্থনীতি (Economy): পূর্ব পাকিস্তানের অর্থনীতি ছিল <span class="blank-line"></span> (ভূট, ধান)।<br>
+                <span class="english">(Economy: East Pakistan's economy was <span class="blank-line"></span> (jute, rice).)</span>
+            </div>
+            
+            <div class="sub-question">
+                ঘ) প্রাকৃতিক সম্পদ (Natural Resources): পূর্ব পাকিস্তানের প্রাকৃতিক সম্পদ ছিল পাট, প্রাণী, <span class="blank-line"></span>।<br>
+                <span class="english">(Natural Resources: East Pakistan's natural resources were jute, livestock, <span class="blank-line"></span>.)</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div style="font-weight: 600; font-size: 15px; margin-bottom: 5px;">
+                প্রশ্নপত্রের সমাপ্তি (End of Question Paper)
+            </div>
+            <div style="margin-top: 10px; color: #666;">
+                <strong>Md Kayes</strong><br>
+                <strong>Learn to Enlight</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
