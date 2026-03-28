@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 5 - Quarterly Examination</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        
+        .watermark {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .watermark span {
+            transform: rotate(-25deg);
+            font-size: 64px;
+            font-weight: 900;
+            color: rgba(0,0,0,.10);
+            letter-spacing: .6px;
+            mix-blend-mode: multiply;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 22px;
+            margin-bottom: 3px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .student-info div span {
+            display: inline-block;
+            border-bottom: 1px dotted #333;
+            min-width: 180px;
+            margin-left: 5px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            margin: 20px 0 15px 0;
+        }
+        
+        .question {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .question-header {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .marks-badge {
+            float: right;
+            background: #28a745;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        .sub-question {
+            margin: 8px 0 8px 20px;
+            line-height: 1.9;
+        }
+        
+        .english {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .blank-line {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 1px dotted #333;
+            margin: 0 3px;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #333;
+            font-size: 14px;
+        }
+        
+        .note {
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .wrap {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Watermark -->
+    <div class="watermark">
+        <span>Md Kayes<br>Learn to Enlight</span>
+    </div>
+    
+    <div class="wrap">
+        <!-- Header -->
+        <div class="header">
+            <h1>ত্রৈমাসিক পরীক্ষা</h1>
+            <h1>QUARTERLY EXAMINATION</h1>
+            <h1 style="font-size: 18px; color: #555; margin-top: 5px;">পঞ্চম শ্রেণী (Class 5)</h1>
+            <div style="margin-top: 8px; color: #d63031; font-weight: 600;">ক্যাডেট কলেজ প্রস্তুতি (Cadet College Preparation)</div>
+        </div>
+        
+        <!-- Info -->
+        <div class="info-row">
+            <div><strong>সময় (Time):</strong> ৬০ মিনিট (60 Minutes) - জমা দেওয়ার সময়সহ (including submission time)</div>
+            <div><strong>পূর্ণমান (Total Marks):</strong> ৬০ (60)</div>
+        </div>
+        
+        <!-- Student Info -->
+        <div class="student-info">
+            <div>নাম (Name): <span></span></div>
+            <div>রোল (Roll): <span></span></div>
+            <div>শ্রেণী (Class): পঞ্চম (Five)</div>
+            <div>তারিখ (Date): <span></span></div>
+        </div>
+        
+        <div class="note">
+            <strong>নির্দেশনা (Instructions):</strong> সকল প্রশ্নের উত্তর দিতে হবে। প্রতিটি প্রশ্ন মনোযোগ সহকারে পড়ুন। হিসাবের ধাপগুলো স্পষ্টভাবে দেখাতে হবে।
+            <br><span class="english">(Answer all questions. Read each question carefully. Show all working steps clearly.)</span>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION A: MATH -->
+        <div class="section-title">বিভাগ ক: গণিত (SECTION A: MATHEMATICS) — ৩৬ নম্বর (36 Marks)</div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১। ৫ অঙ্কের সবচেয়ে বড় সংখ্যা কোনটি যা ১৬, ২৪, ৩০ এবং ৩৬ দ্বারা বিভাজ্য হলে প্রতিবার ভাগশেষ ১০ থাকবে?
+                <br><span class="english">(What is the greatest number of 5 digits which will be divided by 16, 24, 30 and 36, with 10 as remainder each time?)</span>
+                <span class="marks-badge">[৫ নম্বর / 5 Marks]</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ২। একটি স্কুলে ৪২ জন ছেলে এবং ৫৬ জন মেয়ে আছে। তাদেরকে সমান সংখ্যক দলে ভাগ করতে হবে যাতে প্রতিটি দলে ছেলে ও মেয়ের সংখ্যা সমান থাকে।
+                <br><span class="english">(A school has 42 boys and 56 girls. They need to be divided into equal groups so that each group has the same number of boys and girls.)</span>
+                <span class="marks-badge">[৫ নম্বর / 5 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> সর্বাধিক কতটি দল তৈরি করা যাবে?<br>
+                <span class="english">(What is the maximum number of groups that can be formed?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> প্রতিটি দলে মোট কতজন শিক্ষার্থী থাকবে?<br>
+                <span class="english">(How many total students will be in each group?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>গ) [১ নম্বর]</strong> মোট কতজন ছেলে এবং কতজন মেয়ে প্রতি দলে থাকবে?<br>
+                <span class="english">(How many boys and girls will be in each group?)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৩। একটি রাস্তার শুরুতে একসাথে একটি গাছ এবং একটি ল্যাম্পপোস্ট আছে। গাছ ১৮ মিটার পরপর এবং ল্যাম্পপোস্ট ২৪ মিটার পরপর আছে। রাস্তার দৈর্ঘ্য ৪৩২ মিটার।
+                <br><span class="english">(At the start of a road, there is a tree and a lamppost together. Trees are every 18 meters and lampposts every 24 meters. The road is 432 meters long.)</span>
+                <span class="marks-badge">[৫ নম্বর / 5 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> কত মিটার পরপর গাছ এবং ল্যাম্পপোস্ট একসাথে থাকবে?<br>
+                <span class="english">(After how many meters will tree and lamppost be together?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [৩ নম্বর]</strong> রাস্তার শুরু থেকে শেষ পর্যন্ত কতবার গাছ এবং ল্যাম্পপোস্ট একসাথে থাকবে? (শুরুর স্থানসহ)<br>
+                <span class="english">(How many times will tree and lamppost be together from start to end? Including the starting point)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৪। রহিম ও করিমের মাসিক আয়ের সমষ্টি ৪৮,০০০ টাকা। রহিম মাসে ১২,০০০ টাকা খরচ করে এবং তার আয়ের অবশিষ্ট ৩/৫ অংশ সঞ্চয় করে। করিম তার আয়ের ৭/১০ অংশ খরচ করে।
+                <br><span class="english">(Rahim and Karim's combined monthly income is 48,000 taka. Rahim spends 12,000 taka per month and saves 3/5 of his remaining income. Karim spends 7/10 of his income.)</span>
+                <span class="marks-badge">[৬ নম্বর / 6 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [৩ নম্বর]</strong> রহিমের মাসিক আয় কত? (দেওয়া আছে: রহিম ৯,০০০ টাকা সঞ্চয় করে)<br>
+                <span class="english">(What is Rahim's monthly income? Given: Rahim saves 9,000 taka)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [৩ নম্বর]</strong> করিম কত টাকা সঞ্চয় করে?<br>
+                <span class="english">(How much does Karim save?)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৫। একটি সংখ্যাকে ১২, ১৫, ২০ এবং ২৫ দ্বারা ভাগ করলে প্রতিবার ভাগশেষ ৮ থাকে। সংখ্যাটি ১০০০ থেকে বড় এবং ১৫০০ থেকে ছোট।
+                <br><span class="english">(A number when divided by 12, 15, 20 and 25 leaves remainder 8 each time. The number is greater than 1000 and less than 1500.)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                সংখ্যাটি কত?<br>
+                <span class="english">(What is the number?)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৬। একটি কারখানায় তিনটি মেশিন A, B এবং C আছে। মেশিন A প্রতি ৬ মিনিটে একটি বীপ বাজায়, মেশিন B প্রতি ৮ মিনিটে এবং মেশিন C প্রতি ১২ মিনিটে বীপ বাজায়। সকাল ৮টায় তিনটি মেশিন একসাথে বীপ বাজায়।
+                <br><span class="english">(A factory has three machines A, B and C. Machine A beeps every 6 minutes, machine B every 8 minutes, and machine C every 12 minutes. At 8:00 AM all three machines beep together.)</span>
+                <span class="marks-badge">[৫ নম্বর / 5 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> পরবর্তী কখন তিনটি মেশিন একসাথে বীপ বাজাবে?<br>
+                <span class="english">(When will all three machines beep together next?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [৩ নম্বর]</strong> সকাল ৮টা থেকে দুপুর ১২টার মধ্যে কতবার তিনটি মেশিন একসাথে বীপ বাজাবে? (৮টা এবং ১২টা উভয় সময় গণনা করতে হবে)<br>
+                <span class="english">(How many times will all three machines beep together between 8:00 AM and 12:00 PM? Count both 8:00 and 12:00)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৭। নিচের হিসাবগুলো সমাধান করো: (Solve the following calculations)
+                <span class="marks-badge">[৬ নম্বর / 6 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> ৬ − (৫৬ − ৮০) ÷ (২ × ৮) + ৫
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> ৭ + [{ ৪৫ ÷ ৯ + ৩ } × {(১২ − ৭) × ২ − ৫ } − ১ ] ÷ ১৩
+            </div>
+            
+            <div class="sub-question">
+                <strong>গ) [২ নম্বর]</strong> [{ ১০ × (১২ ÷ ৪ − ১) − ২} − {( ৬ × ৬ − ৬) ÷ ২ }] ÷ ৩
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION B: SCIENCE -->
+        <div class="section-title">বিভাগ খ: বিজ্ঞান (SECTION B: SCIENCE) — ১২ নম্বর (12 Marks)</div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৮। নিচের প্রশ্নগুলোর উত্তর দাও: (Answer the following questions)
+                <span class="marks-badge">[৬ নম্বর / 6 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> আবাসস্থল কাকে বলে? স্থলজ ও জলজ আবাসস্থানের পার্থক্য লেখো।<br>
+                <span class="english">(What is habitat? Write the difference between terrestrial and aquatic habitats.)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> অভিযোজন কী? উদাহরণসহ ব্যাখ্যা করো।<br>
+                <span class="english">(What is adaptation? Explain with examples.)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>গ) [২ নম্বর]</strong> মাছ পানিতে কীভাবে শ্বাস-প্রশ্বাস নেয়? ফুলকার ভূমিকা ব্যাখ্যা করো।<br>
+                <span class="english">(How do fish breathe in water? Explain the role of gills.)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৯। সালোকসংশ্লেষণ ও শ্বসন সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <br><span class="english">(Answer the following questions about photosynthesis and respiration:)</span>
+                <span class="marks-badge">[৬ নম্বর / 6 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> উদ্ভিদ দিনের বেলা এবং রাতের বেলা কোন প্রক্রিয়া চালায়? অক্সিজেন ও কার্বন ডাইঅক্সাইড কখন তৈরি হয় এবং কখন গ্রহণ করে?<br>
+                <span class="english">(Which processes do plants carry out during day and night? When do they produce and take oxygen & carbon dioxide?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> উদ্ভিদ ও প্রাণী পরস্পর নির্ভরশীল কীভাবে? অক্সিজেন-কার্বন ডাইঅক্সাইড চক্র ব্যাখ্যা করো।<br>
+                <span class="english">(How are plants and animals interdependent? Explain the oxygen-carbon dioxide cycle.)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>গ) [২ নম্বর]</strong> পরিবেশের ভারসাম্য রক্ষা করা কেন গুরুত্বপূর্ণ? দুইটি কারণ লেখো।<br>
+                <span class="english">(Why is it important to maintain environmental balance? Write two reasons.)</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION C: GENERAL KNOWLEDGE -->
+        <div class="section-title">বিভাগ গ: সাধারণ জ্ঞান (SECTION C: GENERAL KNOWLEDGE) — ১২ নম্বর (12 Marks)</div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১০। ভাষা আন্দোলন ১৯৫২ সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <br><span class="english">(Answer the following questions about Language Movement 1952:)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> ২১ ফেব্রুয়ারি, ১৯৫২ তারিখে কী ঘটেছিল? পাকিস্তান সরকার কোন ধারা জারি করেছিল এবং ছাত্ররা কী করেছিল?<br>
+                <span class="english">(What happened on 21 February 1952? Which section did Pakistan government impose and what did the students do?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> প্রথম শহীদ মিনার কখন এবং কোথায় নির্মিত হয়েছিল? এটি নির্মাণের উদ্দেশ্য কী ছিল?<br>
+                <span class="english">(When and where was the first Shaheed Minar built? What was the purpose of building it?)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১১। যুক্তফ্রন্ট ও ছয় দফা আন্দোলন সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <br><span class="english">(Answer the following questions about United Front and Six-Point Movement:)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> যুক্তফ্রন্ট কেন গঠিত হয়েছিল? এটি কয়টি দল নিয়ে গঠিত এবং কত দফা কর্মসূচি ঘোষণা করেছিল?<br>
+                <span class="english">(Why was United Front formed? How many parties formed it and how many points programme did it declare?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> ছয় দফা আন্দোলন কখন এবং কোথায় ঘোষণা করা হয়? ছয় দফাকে বাঙালি জাতির কী বলা হয় এবং কেন?<br>
+                <span class="english">(When and where was Six-Point Movement declared? What is Six Points called for Bengali nation and why?)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১২। মুজিবনগর সরকার ও পূর্ব-পশ্চিম পাকিস্তান সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <br><span class="english">(Answer the following questions about Mujibnagar Government and East-West Pakistan:)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> মুজিবনগর সরকার কখন এবং কোথায় শপথ নেয়? Acting President এবং Prime Minister কে ছিলেন?<br>
+                <span class="english">(When and where did Mujibnagar Government take oath? Who were the Acting President and Prime Minister?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> পূর্ব ও পশ্চিম পাকিস্তানের মধ্যে তিনটি গুরুত্বপূর্ণ পার্থক্য লেখো (জনসংখ্যা, ভাষা, অর্থনীতি)।<br>
+                <span class="english">(Write three important differences between East and West Pakistan - population, language, economy.)</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div style="font-weight: 600; font-size: 15px; margin-bottom: 5px;">
+                প্রশ্নপত্রের সমাপ্তি (End of Question Paper)
+            </div>
+            <div style="margin-top: 10px; color: #666;">
+                <strong>Md Kayes</strong><br>
+                <strong>Learn to Enlight</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
