@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 5 - Quiz 01 April</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        
+        .watermark {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .watermark span {
+            transform: rotate(-25deg);
+            font-size: 64px;
+            font-weight: 900;
+            color: rgba(0,0,0,.10);
+            letter-spacing: .6px;
+            mix-blend-mode: multiply;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 22px;
+            margin-bottom: 3px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .student-info div span {
+            display: inline-block;
+            border-bottom: 1px dotted #333;
+            min-width: 180px;
+            margin-left: 5px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            margin: 20px 0 15px 0;
+        }
+        
+        .question {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .question-header {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .marks-badge {
+            float: right;
+            background: #28a745;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        .sub-question {
+            margin: 8px 0 8px 20px;
+            line-height: 1.9;
+        }
+        
+        .english {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .blank-line {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 1px dotted #333;
+            margin: 0 3px;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #333;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .wrap {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Watermark -->
+    <div class="watermark">
+        <span>Md Kayes<br>Learn to Enlight</span>
+    </div>
+    
+    <div class="wrap">
+        <!-- Header -->
+        <div class="header">
+            <h1>কুইজ ০১ - এপ্রিল</h1>
+            <h1>QUIZ 01 - APRIL</h1>
+            <h1 style="font-size: 18px; color: #555; margin-top: 5px;">পঞ্চম শ্রেণী (Class 5)</h1>
+        </div>
+        
+        <!-- Info -->
+        <div class="info-row">
+            <div><strong>সময় (Time):</strong> ২০ মিনিট (20 Minutes) - জমা দেওয়ার সময়সহ (including submission time)</div>
+            <div><strong>পূর্ণমান (Total Marks):</strong> ২০ (20)</div>
+        </div>
+        
+        <!-- Student Info -->
+        <div class="student-info">
+            <div>নাম (Name): <span></span></div>
+            <div>রোল (Roll): <span></span></div>
+            <div>শ্রেণী (Class): পঞ্চম (Five)</div>
+            <div>তারিখ (Date): <span></span></div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION A: MATH -->
+        <div class="section-title">বিভাগ ক: গণিত (SECTION A: MATHEMATICS) — ২০ নম্বর (20 Marks)</div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১। মৌলিক উৎপাদক পদ্ধতিতে ল.সা.গু ও গ.সা.গু বের করো:
+                <br><span class="english">(Find LCM and HCF using prime factorization method:)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> ২৪, ৩৬ এবং ৬০<br>
+                <span class="english">(24, 36 and 60)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> ৪৮, ৭২ এবং ৯৬<br>
+                <span class="english">(48, 72 and 96)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ২। মিশ্র ভগ্নাংশকে অপ্রকৃত ভগ্নাংশে এবং অপ্রকৃত ভগ্নাংশকে মিশ্র ভগ্নাংশে রূপান্তর করো:
+                <br><span class="english">(Convert mixed to improper and improper to mixed fractions:)</span>
+                <span class="marks-badge">[২ নম্বর / 2 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [১ নম্বর]</strong> ৩ ২/৫ = <span class="blank-line"></span> (মিশ্র → অপ্রকৃত)<br>
+                <span class="english">(Mixed → Improper)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [১ নম্বর]</strong> ২৩/৬ = <span class="blank-line"></span> (অপ্রকৃত → মিশ্র)<br>
+                <span class="english">(Improper → Mixed)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৩। ভগ্নাংশের গুণ, ভাগ, যোগ ও বিয়োগ করো:
+                <br><span class="english">(Multiply, divide, add and subtract the fractions:)</span>
+                <span class="marks-badge">[৬ নম্বর / 6 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [১ নম্বর]</strong> ২/৩ × ৫/৭ = <span class="blank-line"></span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [১ নম্বর]</strong> ৪/৯ ÷ ২/৫ = <span class="blank-line"></span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>গ) [৪ নম্বর]</strong> সরল করো (Simplify): ২/৩ + ৩/৪ − ৫/৬ × ২/৫<br>
+                <span class="english">(Simplify: 2/3 + 3/4 − 5/6 × 2/5)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৪। ১৮ সেমি এবং ২৮ সেমি দৈর্ঘ্যের দুইটি ছবির কাগজ আছে।
+                <br><span class="english">(There are two picture papers of 18 cm and 28 cm length.)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> কোনো অবশিষ্ট না রেখে সর্বোচ্চ কত সেমি বাহুর বর্গাকৃতি টুকরা করা যাবে?<br>
+                <span class="english">(What is the maximum size of square pieces (in cm) that can be cut from both papers without any remainder?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> প্রতিটি কাগজ থেকে কতটি করে বর্গাকৃতি টুকরা পাওয়া যাবে?<br>
+                <span class="english">(How many square pieces will be obtained from each paper?)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৫। ভগ্নাংশের ল.সা.গু এবং গ.সা.গু বের করো:
+                <br><span class="english">(Find LCM and HCF of the fractions:)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> ২/৩, ৪/৯ এবং ৮/২৭ এর ল.সা.গু কত?<br>
+                <span class="english">(What is the LCM of 2/3, 4/9 and 8/27?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> ২/৩, ৪/৯ এবং ৮/২৭ এর গ.সা.গু কত?<br>
+                <span class="english">(What is the HCF of 2/3, 4/9 and 8/27?)</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div style="font-weight: 600; font-size: 15px; margin-bottom: 5px;">
+                প্রশ্নপত্রের সমাপ্তি (End of Question Paper)
+            </div>
+            <div style="margin-top: 10px; color: #666;">
+                <strong>Md Kayes</strong><br>
+                <strong>Learn to Enlight</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
