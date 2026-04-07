@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Readiness Audit - Camel Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #08080F;
+    --surface:   #0E0E1A;
+    --card:      #13131F;
+    --footer:    #2C2C2C;
+    --border:    rgba(105,70,245,.22);
+    --purple:    #6946F5;
+    --purple2:   #8B4BEF;
+    --green:     #61CE70;
+    --yellow:    #CFF128;
+    --btn-hover: #23A455;
+    --pink:      #FD71AF;
+    --white:     #FFFFFF;
+    --muted:     #7A7A7A;
+    --text:      #C8C8D8;
+    --light-bg:  #F5F6FF;
+    --radius:    14px;
+    --tr:        .35s cubic-bezier(.4,0,.2,1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Oxygen', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 32px 16px 80px;
+    position: relative; overflow-x: hidden;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; top: -180px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(105,70,245,.14) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center; margin-bottom: 36px;
+    position: relative; z-index: 1;
+    animation: fadeUp .6s ease both;
+  }
+  .logo-wrap { padding: 12px 0 20px; }
+  .logo-img { height: 42px; filter: drop-shadow(0 0 18px rgba(105,70,245,.4)); }
+
+  .header h1 {
+    font-family: 'Century Gothic', 'Century Gothic Pro', 'AppleGothic', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: clamp(24px, 5vw, 40px); font-weight: 800;
+    color: var(--white); line-height: 1.15; letter-spacing: -.02em; margin-bottom: 14px;
+    white-space: nowrap;
+  }
+  .header p { max-width: 460px; margin: 0 auto; font-size: 15px; color: var(--muted); line-height: 1.65; }
+
+  /* PROGRESS */
+  .progress-wrap {
+    width: 100%; max-width: 600px; margin-bottom: 24px;
+    position: relative; z-index: 1;
+    animation: fadeUp .5s .1s ease both;
+    transition: opacity .3s;
+  }
+  .progress-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .progress-bar { height: 3px; background: var(--card); border-radius: 99px; overflow: hidden; }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--purple), var(--purple2), #A78BFA);
+    border-radius: 99px; transition: width .6s cubic-bezier(.4,0,.2,1);
+  }
+  .step-dots { display: flex; gap: 6px; justify-content: center; margin-top: 10px; }
+  .step-dot { width: 6px; height: 6px; border-radius: 99px; background: var(--card); border: 1px solid var(--border); transition: var(--tr); }
+  .step-dot.active { background: var(--purple); border-color: var(--purple); width: 20px; }
+  .step-dot.done { background: var(--purple2); border-color: var(--purple2); }
+
+  /* CARD */
+  .card {
+    width: 100%; max-width: 600px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px; position: relative; z-index: 1;
+    animation: fadeUp .5s .15s ease both;
+    box-shadow: 0 0 0 1px rgba(105,70,245,.08), 0 20px 60px rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.05) inset;
+  }
+
+  /* QUESTION */
+  .dim-label { font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--purple2); margin-bottom: 10px; }
+  .question { font-family: 'Century Gothic', 'Century Gothic Pro', 'AppleGothic', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: clamp(18px,3vw,22px); font-weight: 700; color: var(--white); margin-bottom: 22px; line-height: 1.35; }
+
+  /* OPTIONS */
+  .options { display: flex; flex-direction: column; gap: 9px; }
+  .option {
+    display: flex; align-items: flex-start; gap: 13px;
+    padding: 13px 15px; border: 1px solid var(--border); border-radius: 10px;
+    cursor: pointer; transition: var(--tr); background: var(--card); position: relative; overflow: hidden;
+  }
+  .option::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(105,70,245,.1), transparent);
+    opacity: 0; transition: var(--tr);
+  }
+  .option:hover { border-color: rgba(105,70,245,.5); transform: translateX(3px); }
+  .option:hover::before { opacity: 1; }
+  .option.selected { border-color: var(--purple); background: rgba(105,70,245,.1); }
+  .option.selected::before { opacity: 1; }
+
+  .option-score {
+    width: 26px; height: 26px; border-radius: 6px;
+    background: var(--surface); border: 1px solid var(--border);
+    display: grid; place-items: center;
+    font-family: 'Century Gothic', 'Century Gothic Pro', 'AppleGothic', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700; font-size: 12px; color: var(--muted);
+    flex-shrink: 0; margin-top: 1px; transition: var(--tr);
+  }
+  .option.selected .option-score { background: var(--purple); border-color: var(--purple); color: var(--white); }
+  .option-text { font-size: 14px; line-height: 1.55; color: var(--text); transition: var(--tr); }
+  .option.selected .option-text { color: var(--white); }
+
+  /* CAUTION */
+  .caution {
+    display: flex; gap: 10px;
+    background: rgba(105,70,245,.07); border: 1px solid rgba(105,70,245,.22);
+    border-radius: 8px; padding: 12px 14px; margin-bottom: 22px;
+    font-size: 13px; line-height: 1.55; color: var(--muted);
+  }
+  .caution .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* BUTTONS */
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; gap: 12px; }
+
+  .btn { font-family: 'Oxygen', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; font-weight: 500; padding: 11px 24px; border-radius: 8px; border: none; cursor: pointer; transition: var(--tr); }
+  .btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+  .btn-ghost:hover { border-color: rgba(105,70,245,.5); color: var(--white); }
+  .btn-primary {
+    background: var(--yellow);
+    color: #08080F;
+    font-weight: 700;
+    padding: 12px 28px;
+    letter-spacing: .01em;
+  }
+  .btn-primary:hover { background: var(--btn-hover); color: var(--white); }
+  .btn-primary:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+  .btn-full { width: 100%; }
+
+  /* EMAIL STEP */
+  .email-step { text-align: center; }
+  .email-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, rgba(105,70,245,.25), rgba(139,75,239,.1));
+    border: 1px solid var(--border); border-radius: 16px;
+    display: grid; place-items: center; font-size: 28px; margin: 0 auto 20px;
+  }
+  .email-step h2 { font-family: 'Century Gothic', 'Century Gothic Pro', 'AppleGothic', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .email-step p { font-size: 14px; color: var(--muted); margin-bottom: 22px; line-height: 1.6; }
+  .input-group { text-align: left; margin-bottom: 13px; }
+  .input-group label { display: block; font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+  .input-group input {
+    width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 14px; font-family: 'Oxygen', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: var(--white); outline: none; transition: var(--tr);
+  }
+  .input-group input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(105,70,245,.15); }
+  .input-group input::placeholder { color: var(--muted); }
+  .privacy { font-size: 12px; color: var(--muted); text-align: center; margin-top: 12px; }
+
+  /* RESULTS */
+  .results-step { text-align: center; }
+  .score-ring { position: relative; width: 140px; height: 140px; margin: 0 auto 18px; }
+  .score-ring svg { transform: rotate(-90deg); }
+  .score-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+  .score-num { font-family: 'Century Gothic', 'Century Gothic Pro', 'AppleGothic', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 38px; font-weight: 800; color: var(--white); line-height: 1; }
+  .score-max { font-size: 12px; color: var(--muted); }
+  .level-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(105,70,245,.15); border: 1px solid rgba(105,70,245,.35);
+    border-radius: 100px; padding: 6px 18px; margin-bottom: 14px;
+    font-family: 'Century Gothic', 'Century Gothic Pro', 'AppleGothic', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 700; font-size: 13px; color: #A78BFA;
+  }
+  .results-step h2 { font-family: 'Century Gothic', 'Century Gothic Pro', 'AppleGothic', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  .results-step .desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 22px; }
+
+  .breakdown { display: flex; flex-direction: column; gap: 7px; text-align: left; margin-bottom: 22px; }
+  .breakdown-row { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+  .breakdown-name { flex: 1; font-size: 13px; color: var(--text); }
+  .breakdown-dots { display: flex; gap: 4px; }
+  .bdot { width: 10px; height: 10px; border-radius: 3px; background: var(--surface); border: 1px solid var(--border); }
+  .bdot.filled { background: var(--purple); border-color: var(--purple); }
+  .breakdown-score { font-family: 'Century Gothic', 'Century Gothic Pro', 'AppleGothic', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 700; font-size: 13px; color: #A78BFA; width: 28px; text-align: right; }
+
+  .cta-block { background: linear-gradient(135deg, rgba(105,70,245,.12), rgba(105,70,245,.04)); border: 1px solid rgba(105,70,245,.28); border-radius: 10px; padding: 20px; }
+  .cta-block p { font-size: 13px; color: var(--muted); margin-bottom: 14px; line-height: 1.55; }
+
+  /* BOOK PROMO */
+  .book-promo {
+    display: flex; flex-direction: column;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px; margin-bottom: 20px;
+    text-align: left;
+  }
+  .book-cover {
+    flex-shrink: 0; width: 90px; height: 112px;
+    background: linear-gradient(160deg, #1A1030, #2D1B6E);
+    border: 1px solid rgba(105,70,245,.4);
+    border-radius: 6px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 10px 8px; gap: 6px;
+    position: relative; overflow: hidden;
+  }
+  .book-cover::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #CFF128, #6946F5);
+  }
+  .book-cover-icon { font-size: 22px; }
+  .book-cover-title { font-family: 'Century Gothic', 'Gill Sans', sans-serif; font-size: 8px; font-weight: 700; color: var(--white); text-align: center; line-height: 1.3; }
+  .book-cover-sub { font-size: 7px; color: #A78BFA; text-align: center; line-height: 1.3; }
+  .book-info { flex: 1; }
+  .book-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); font-weight: 600; margin-bottom: 6px; }
+  .book-title { font-family: 'Century Gothic', 'Gill Sans', sans-serif; font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.35; }
+  .book-body { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+
+  /* CTA Button updated */
+  .btn-book-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 5px;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--green);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(97, 206, 112, 0.5);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: var(--tr);
+  }
+  .btn-book-link:hover {
+    color: #4ade80;
+    text-decoration-color: rgba(97, 206, 112, 0.9);
+  }
+  .btn-book-link .arrow {
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  /* INTRO ITEMS */
+  .intro-item { display: flex; gap: 12px; align-items: center; padding: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+  .intro-item-icon { font-size: 22px; flex-shrink: 0; }
+  .intro-item-title { font-size: 13px; color: var(--white); font-weight: 500; }
+  .intro-item-sub { font-size: 12px; color: var(--muted); }
+
+  /* TRANSITIONS */
+  .step-panel { display: none; animation: slideIn .4s cubic-bezier(.4,0,.2,1) both; }
+  .step-panel.active { display: block; }
+  @keyframes slideIn { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* MISC */
+  .status-msg { text-align: center; font-size: 13px; margin-top: 12px; min-height: 18px; color: var(--muted); }
+  .status-msg.success { color: var(--green); }
+  .status-msg.error   { color: var(--pink); }
+  .spinner { display: inline-block; width: 15px; height: 15px; border: 2px solid rgba(0,0,0,.3); border-top-color: #08080F; border-radius: 50%; animation: spin .7s linear infinite; margin-right: 7px; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .footer { margin-top: 36px; text-align: center; font-size: 12px; color: var(--muted); position: relative; z-index: 1; }
+  .footer a { color: var(--purple2); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo-wrap">
+    <img class="logo-img" src="data:image/png;base64,[YOUR_BASE64_IMAGE_STRING_HERE]" alt="Camel Tech Logo">
+  </div>
+  <h1>AI Readiness Audit</h1>
+  <p>Discover where your business stands on the AI adoption curve and get a personalized roadmap for automation.</p>
+</header>
+
+<div class="progress-wrap" id="progressWrap" style="display:none;">
+  <div class="progress-labels">
+    <span id="progressText">Question 1 of 5</span>
+    <span id="progressPct">0%</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+  </div>
+  <div class="step-dots" id="stepDots"></div>
+</div>
+
+<main class="card" id="mainCard">
+  <div id="introStep" class="step-panel active">
+    <div class="dim-label">Assessment Overview</div>
+    <h2 class="question">Ready to scale with AI?</h2>
+    <div style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:24px;">
+      This 2-minute diagnostic evaluates your company's operational maturity and readiness for AI integration. You'll receive a detailed readiness score and actionable next steps.
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+      <div class="intro-item">
+        <div class="intro-item-icon">⏱️</div>
+        <div>
+          <div class="intro-item-title">2 Minutes</div>
+          <div class="intro-item-sub">5 critical operational questions</div>
+        </div>
+      </div>
+      <div class="intro-item">
+        <div class="intro-item-icon">📊</div>
+        <div>
+          <div class="intro-item-title">Instant Analysis</div>
+          <div class="intro-item-sub">Get your readiness score immediately</div>
+        </div>
+      </div>
+      <div class="intro-item">
+        <div class="intro-item-icon">🎯</div>
+        <div>
+          <div class="intro-item-title">Custom Action Plan</div>
+          <div class="intro-item-sub">Clear next steps based on your level</div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-full" onclick="startAudit()">Begin Audit</button>
+  </div>
+
+  <div id="q1" class="step-panel">
+    <div class="dim-label">1. Process Documentation</div>
+    <h2 class="question">How well are your core business processes documented?</h2>
+    <div class="caution">
+      <div class="icon">💡</div>
+      <div>AI needs clear rules to operate. Without documented processes, automation attempts often fail.</div>
+    </div>
+    <div class="options">
+      <div class="option" onclick="selectOption(1, 1)">
+        <div class="option-score">1</div>
+        <div class="option-text">"It's all in our heads." We rely on tribal knowledge.</div>
+      </div>
+      <div class="option" onclick="selectOption(1, 2)">
+        <div class="option-score">2</div>
+        <div class="option-text">We have some basic SOPs, but they are often outdated or ignored.</div>
+      </div>
+      <div class="option" onclick="selectOption(1, 3)">
+        <div class="option-score">3</div>
+        <div class="option-text">Core processes are documented, but there's room for optimization.</div>
+      </div>
+      <div class="option" onclick="selectOption(1, 4)">
+        <div class="option-score">4</div>
+        <div class="option-text">Everything is mapped, standardized, and strictly followed.</div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn btn-ghost" onclick="prevStep()">Back</button>
+      <button class="btn btn-primary" id="btnNext1" onclick="nextStep()" disabled>Next</button>
+    </div>
+  </div>
+
+  <div id="q2" class="step-panel">
+    <div class="dim-label">2. Data Accessibility</div>
+    <h2 class="question">Where does your critical business data live?</h2>
+    <div class="caution">
+      <div class="icon">💡</div>
+      <div>AI acts on data. If data is siloed or dirty, AI insights will be flawed.</div>
+    </div>
+    <div class="options">
+      <div class="option" onclick="selectOption(2, 1)">
+        <div class="option-score">1</div>
+        <div class="option-text">Scattered across emails, spreadsheets, and personal drives.</div>
+      </div>
+      <div class="option" onclick="selectOption(2, 2)">
+        <div class="option-score">2</div>
+        <div class="option-text">We use basic software, but systems don't talk to each other.</div>
+      </div>
+      <div class="option" onclick="selectOption(2, 3)">
+        <div class="option-score">3</div>
+        <div class="option-text">Centralized in a CRM/ERP, with some manual data entry still required.</div>
+      </div>
+      <div class="option" onclick="selectOption(2, 4)">
+        <div class="option-score">4</div>
+        <div class="option-text">Fully integrated systems with clean, accessible APIs.</div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn btn-ghost" onclick="prevStep()">Back</button>
+      <button class="btn btn-primary" id="btnNext2" onclick="nextStep()" disabled>Next</button>
+    </div>
+  </div>
+
+  <div id="q3" class="step-panel">
+    <div class="dim-label">3. Team Capacity</div>
+    <h2 class="question">How much time does your team spend on repetitive admin work?</h2>
+    <div class="caution">
+      <div class="icon">💡</div>
+      <div>This is the immediate ROI zone. High manual work equals high automation potential.</div>
+    </div>
+    <div class="options">
+      <div class="option" onclick="selectOption(3, 1)">
+        <div class="option-score">1</div>
+        <div class="option-text">Almost none. We are highly efficient.</div>
+      </div>
+      <div class="option" onclick="selectOption(3, 2)">
+        <div class="option-score">2</div>
+        <div class="option-text">A little bit (10-20% of their week).</div>
+      </div>
+      <div class="option" onclick="selectOption(3, 3)">
+        <div class="option-score">3</div>
+        <div class="option-text">A noticeable amount (20-40% of their week).</div>
+      </div>
+      <div class="option" onclick="selectOption(3, 4)">
+        <div class="option-score">4</div>
+        <div class="option-text">Too much. They are drowning in copy-pasting and data entry.</div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn btn-ghost" onclick="prevStep()">Back</button>
+      <button class="btn btn-primary" id="btnNext3" onclick="nextStep()" disabled>Next</button>
+    </div>
+  </div>
+
+  <div id="q4" class="step-panel">
+    <div class="dim-label">4. Leadership Alignment</div>
+    <h2 class="question">How does leadership view AI integration?</h2>
+    <div class="caution">
+      <div class="icon">💡</div>
+      <div>Without top-down buy-in, AI initiatives stall at the pilot phase.</div>
+    </div>
+    <div class="options">
+      <div class="option" onclick="selectOption(4, 1)">
+        <div class="option-score">1</div>
+        <div class="option-text">Skeptical or unaware. It's not a priority.</div>
+      </div>
+      <div class="option" onclick="selectOption(4, 2)">
+        <div class="option-score">2</div>
+        <div class="option-text">Curious, but hesitant to invest time or budget.</div>
+      </div>
+      <div class="option" onclick="selectOption(4, 3)">
+        <div class="option-score">3</div>
+        <div class="option-text">Supportive. We are actively looking for use cases.</div>
+      </div>
+      <div class="option" onclick="selectOption(4, 4)">
+        <div class="option-score">4</div>
+        <div class="option-text">It's a strategic imperative. We have a mandate to automate.</div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn btn-ghost" onclick="prevStep()">Back</button>
+      <button class="btn btn-primary" id="btnNext4" onclick="nextStep()" disabled>Next</button>
+    </div>
+  </div>
+
+  <div id="q5" class="step-panel">
+    <div class="dim-label">5. AI Literacy</div>
+    <h2 class="question">What is your team's current experience level with AI tools?</h2>
+    <div class="caution">
+      <div class="icon">💡</div>
+      <div>Even the best systems fail if the team doesn't know how to use them.</div>
+    </div>
+    <div class="options">
+      <div class="option" onclick="selectOption(5, 1)">
+        <div class="option-score">1</div>
+        <div class="option-text">None. We don't use AI at all.</div>
+      </div>
+      <div class="option" onclick="selectOption(5, 2)">
+        <div class="option-score">2</div>
+        <div class="option-text">Some individuals use ChatGPT casually for writing.</div>
+      </div>
+      <div class="option" onclick="selectOption(5, 3)">
+        <div class="option-score">3</div>
+        <div class="option-text">We use AI tools regularly for specific tasks (e.g., content, coding).</div>
+      </div>
+      <div class="option" onclick="selectOption(5, 4)">
+        <div class="option-score">4</div>
+        <div class="option-text">We have custom AI workflows or automated agents deployed.</div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn btn-ghost" onclick="prevStep()">Back</button>
+      <button class="btn btn-primary" id="btnNext5" onclick="nextStep()" disabled>See Results</button>
+    </div>
+  </div>
+
+  <div id="emailStep" class="step-panel">
+    <div class="email-step">
+      <div class="email-icon">📩</div>
+      <h2>Get Your Detailed Analysis</h2>
+      <p>Enter your email to reveal your readiness score and receive your personalized AI automation roadmap.</p>
+      
+      <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" id="inputName" placeholder="Jane Doe">
+      </div>
+      <div class="input-group">
+        <label>Work Email</label>
+        <input type="email" id="inputEmail" placeholder="jane@company.com">
+      </div>
+      
+      <button class="btn btn-primary btn-full" id="btnSubmit" onclick="submitAudit()" style="margin-top:16px;">
+        <span id="btnSubmitText">Reveal My Score</span>
+      </button>
+      <div class="status-msg" id="statusMsg"></div>
+      <div class="privacy">Your data is secure. No spam, just high-value insights.</div>
+    </div>
+  </div>
+
+  <div id="resultsStep" class="step-panel"></div>
+</main>
+
+<footer class="footer">
+  &copy; 2025 Camel Tech. All rights reserved. <br>
+  Questions? Contact <a href="mailto:imrul-founder@camelai.tech">imrul-founder@camelai.tech</a>
+</footer>
+
+<script>
+  let currentStep = 0;
+  const totalSteps = 5;
+  const scores = { 1:0, 2:0, 3:0, 4:0, 5:0 };
+  
+  function updateUI() {
+    document.querySelectorAll('.step-panel').forEach(el => el.classList.remove('active'));
+    
+    if(currentStep === 0) {
+      document.getElementById('introStep').classList.add('active');
+      document.getElementById('progressWrap').style.display = 'none';
+    } else if(currentStep <= totalSteps) {
+      document.getElementById(`q${currentStep}`).classList.add('active');
+      
+      const pw = document.getElementById('progressWrap');
+      pw.style.display = 'block';
+      pw.style.opacity = '1';
+      
+      const pct = currentStep <= 5 ? Math.round((currentStep - 1) / totalSteps * 100) : 100;
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressText').innerText = `Question ${currentStep} of ${totalSteps}`;
+      document.getElementById('progressPct').innerText = pct + '%';
+      
+      const dotsHtml = Array.from({length: totalSteps}, (_, i) => {
+        let cls = 'step-dot';
+        if(i + 1 < currentStep) cls += ' done';
+        else if(i + 1 === currentStep) cls += ' active';
+        return `<div class="${cls}"></div>`;
+      }).join('');
+      document.getElementById('stepDots').innerHTML = dotsHtml;
+      
+    } else if(currentStep === 6) {
+      document.getElementById('emailStep').classList.add('active');
+      document.getElementById('progressWrap').style.opacity = '0';
+      setTimeout(() => document.getElementById('progressWrap').style.display = 'none', 300);
+    } else if(currentStep === 7) {
+      document.getElementById('resultsStep').classList.add('active');
+    }
+  }
+
+  function startAudit() { currentStep = 1; updateUI(); }
+  function nextStep() { currentStep++; updateUI(); }
+  function prevStep() { currentStep--; updateUI(); }
+
+  function selectOption(q, val) {
+    scores[q] = val;
+    const parent = document.getElementById(`q${q}`);
+    parent.querySelectorAll('.option').forEach((opt, idx) => {
+      if(idx === val - 1) opt.classList.add('selected');
+      else opt.classList.remove('selected');
+    });
+    document.getElementById(`btnNext${q}`).disabled = false;
+  }
+
+  const webhookURL = "https://hook.us2.make.com/n14a9g030u4n74v43ofw36f6x6v3cixr"; 
+
+  function submitAudit() {
+    const name = document.getElementById('inputName').value.trim();
+    const email = document.getElementById('inputEmail').value.trim();
+    const msg = document.getElementById('statusMsg');
+    
+    if(!name || !email || !email.includes('@')) {
+      msg.className = 'status-msg error';
+      msg.innerText = 'Please enter a valid name and email.';
+      return;
+    }
+    
+    msg.className = 'status-msg';
+    msg.innerText = '';
+    
+    const btnText = document.getElementById('btnSubmitText');
+    btnText.innerHTML = '<div class="spinner"></div> Analyzing...';
+    document.getElementById('btnSubmit').disabled = true;
+
+    const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+    
+    const payload = {
+      name: name,
+      email: email,
+      scores: scores,
+      totalScore: totalScore,
+      timestamp: new Date().toISOString()
+    };
+
+    fetch(webhookURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if(response.ok) { showResults(); }
+      else { throw new Error('Network error'); }
+    })
+    .catch(err => {
+      console.error(err);
+      showResults(); 
+    });
+  }
+
+  function loadFont(href) {
+    return new Promise((resolve) => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.onload = resolve;
+      link.onerror = resolve;
+      document.head.appendChild(link);
+    });
+  }
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.body.appendChild(s);
+    });
+  }
+
+  function showResults() {
+    currentStep = 7;
+    const total = Object.values(scores).reduce((a, b) => a + b, 0);
+    let level = "", desc = "", badge = "";
+    
+    if(total <= 8) {
+      level = "Level 1: AI Novice";
+      badge = "🚨 Critical Foundation Phase";
+      desc = "Your organization is at the very beginning of the automation journey. Before implementing AI, focus on documenting core processes and centralizing your data.";
+    } else if(total <= 13) {
+      level = "Level 2: AI Explorer";
+      badge = "🌱 Growth Phase";
+      desc = "You have the basics down. Your team is testing the waters, but workflows are still fragmented. It's time to connect your systems and target quick-win automations.";
+    } else if(total <= 17) {
+      level = "Level 3: AI Practitioner";
+      badge = "⚙️ Optimization Phase";
+      desc = "Strong foundation! You're actively using automation. To scale further, secure executive buy-in for cross-departmental AI agents and deeper data integration.";
+    } else {
+      level = "Level 4: AI Pioneer";
+      badge = "🚀 Scaling Phase";
+      desc = "Excellent readiness. Your culture, data, and processes are primed for advanced AI integration. Focus on building proprietary AI workflows to create a competitive moat.";
+    }
+
+    const pct = Math.round((total / 20) * 100);
+    const dashOffset = 283 - (283 * pct) / 100;
+
+    const mkDots = s => [1,2,3,4].map(d => '<div class="bdot' + (d<=s?' filled':'') + '"></div>').join('');
+
+    const bookPromo = '<div class="book-promo">' + 
+        '<div style="display:flex;gap:18px;align-items:flex-start;margin-bottom:14px">' + 
+          '<div class="book-cover">' + 
+            '<div class="book-cover-icon">📖</div>' + 
+            '<div class="book-cover-title">Stress-Free AI</div>' + 
+            '<div class="book-cover-sub">Executive Playbook</div>' + 
+          '</div>' + 
+          '<div class="book-info">' + 
+            '<div class="book-title" style="font-style: italic;">Stress-Free AI: The Executive Playbook</div>' + 
+            '<div class="book-body">The methodology behind this audit is covered in depth in Stress-Free AI — developed across 100+ engagements with $1M–$50M founders. Worth reading before you plan your next move.</div>' + 
+            '<div style="text-align: left;">' +
+              '<button class="btn-book-link" onclick="window.open(\'#\', \'_blank\')"><span class="arrow">→</span> Read the playbook</button>' + 
+            '</div>' +
+          '</div>' + 
+        '</div>' + 
+      '</div>';
+
+    const resHtml = `
+      <div class="results-step">
+        <div class="score-ring">
+          <svg width="140" height="140" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="var(--surface)" stroke-width="6"/>
+            <circle cx="50" cy="50" r="45" fill="none" stroke="var(--yellow)" stroke-width="6" stroke-dasharray="283" stroke-dashoffset="${dashOffset}" stroke-linecap="round" style="transition: stroke-dashoffset 1.5s ease-out;"/>
+          </svg>
+          <div class="score-center">
+            <div class="score-num">${total}</div>
+            <div class="score-max">out of 20</div>
+          </div>
+        </div>
+        
+        <div class="level-badge">${badge}</div>
+        <h2>${level}</h2>
+        <div class="desc">${desc}</div>
+        
+        <div class="breakdown">
+          <div class="breakdown-row">
+            <div class="breakdown-name">Process Documentation</div>
+            <div class="breakdown-dots">${mkDots(scores[1])}</div>
+            <div class="breakdown-score">${scores[1]}</div>
+          </div>
+          <div class="breakdown-row">
+            <div class="breakdown-name">Data Accessibility</div>
+            <div class="breakdown-dots">${mkDots(scores[2])}</div>
+            <div class="breakdown-score">${scores[2]}</div>
+          </div>
+          <div class="breakdown-row">
+            <div class="breakdown-name">Team Capacity</div>
+            <div class="breakdown-dots">${mkDots(scores[3])}</div>
+            <div class="breakdown-score">${scores[3]}</div>
+          </div>
+          <div class="breakdown-row">
+            <div class="breakdown-name">Leadership Alignment</div>
+            <div class="breakdown-dots">${mkDots(scores[4])}</div>
+            <div class="breakdown-score">${scores[4]}</div>
+          </div>
+          <div class="breakdown-row">
+            <div class="breakdown-name">AI Literacy</div>
+            <div class="breakdown-dots">${mkDots(scores[5])}</div>
+            <div class="breakdown-score">${scores[5]}</div>
+          </div>
+        </div>
+
+        ${bookPromo}
+        
+        <div class="cta-block">
+          <p>Ready to move to the next level? Book a strategy call to map out your custom automation roadmap.</p>
+          <button class="btn btn-primary btn-full" onclick="downloadPdfAndRedirect()">Download PDF & Book Strategy Call</button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('resultsStep').innerHTML = resHtml;
+    updateUI();
+  }
+
+  function downloadPdfAndRedirect() {
+    const btn = document.querySelector('.cta-block .btn-primary');
+    const ogText = btn.innerText;
+    btn.innerHTML = '<div class="spinner"></div> Generating PDF...';
+    btn.disabled = true;
+
+    const container = document.createElement('div');
+    container.style.position = 'absolute';
+    container.style.top = '-9999px';
+    container.style.left = '0';
+    container.style.width = '794px'; 
+    container.style.background = '#08080F';
+    container.style.color = '#C8C8D8';
+    container.style.fontFamily = "'Oxygen', sans-serif";
+    container.style.padding = '40px';
+    
+    const total = Object.values(scores).reduce((a, b) => a + b, 0);
+    const mkDots = s => [1,2,3,4].map(d => `<div style="width:12px;height:12px;border-radius:3px;background:${d<=s?'#6946F5':'#13131F'};border:1px solid rgba(105,70,245,.22);"></div>`).join('');
+
+    container.innerHTML = `
+      <div style="text-align:center; margin-bottom: 40px;">
+        <h1 style="font-family:'Century Gothic',sans-serif; color:#FFFFFF; font-size:32px; margin-bottom:10px;">AI Readiness Audit Results</h1>
+        <p style="color:#7A7A7A; font-size:16px;">Prepared for ${document.getElementById('inputName').value}</p>
+      </div>
+      
+      <div style="background:#0E0E1A; border:1px solid rgba(105,70,245,.22); border-radius:14px; padding:40px; margin-bottom:30px;">
+        <div style="text-align:center; margin-bottom:30px;">
+          <div style="font-family:'Century Gothic',sans-serif; font-size:60px; font-weight:800; color:#FFFFFF; line-height:1;">${total} <span style="font-size:20px; color:#7A7A7A; font-weight:400;">/ 20</span></div>
+          <div style="color:#CFF128; font-family:'Century Gothic',sans-serif; font-size:18px; font-weight:700; margin-top:10px;">Total Readiness Score</div>
+        </div>
+        
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#13131F; padding:16px 20px; border-radius:8px; border:1px solid rgba(105,70,245,.22);">
+            <div style="color:#FFFFFF; font-size:16px;">1. Process Documentation</div>
+            <div style="display:flex; gap:6px;">${mkDots(scores[1])}</div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#13131F; padding:16px 20px; border-radius:8px; border:1px solid rgba(105,70,245,.22);">
+            <div style="color:#FFFFFF; font-size:16px;">2. Data Accessibility</div>
+            <div style="display:flex; gap:6px;">${mkDots(scores[2])}</div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#13131F; padding:16px 20px; border-radius:8px; border:1px solid rgba(105,70,245,.22);">
+            <div style="color:#FFFFFF; font-size:16px;">3. Team Capacity</div>
+            <div style="display:flex; gap:6px;">${mkDots(scores[3])}</div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#13131F; padding:16px 20px; border-radius:8px; border:1px solid rgba(105,70,245,.22);">
+            <div style="color:#FFFFFF; font-size:16px;">4. Leadership Alignment</div>
+            <div style="display:flex; gap:6px;">${mkDots(scores[4])}</div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#13131F; padding:16px 20px; border-radius:8px; border:1px solid rgba(105,70,245,.22);">
+            <div style="color:#FFFFFF; font-size:16px;">5. AI Literacy</div>
+            <div style="display:flex; gap:6px;">${mkDots(scores[5])}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align:center; color:#7A7A7A; font-size:14px; margin-top:40px;">
+        &copy; 2025 Camel Tech. All rights reserved.
+      </div>
+    `;
+    
+    document.body.appendChild(container);
+
+    Promise.all([
+      loadFont('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Oxygen:wght@400;700&display=swap'),
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'),
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js')
+    ]).then(() => {
+      return document.fonts.ready;
+    }).then(() => {
+      return new Promise(r => setTimeout(r, 400));
+    }).then(() => {
+      return html2canvas(container, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#08080F',
+        logging: false,
+        width: 794,
+        windowWidth: 794
+      });
+    }).then(canvas => {
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({ orientation: 'portrait', unit: 'px', format: 'a4' });
+      const pageW = pdf.internal.pageSize.getWidth();
+      const pageH = pdf.internal.pageSize.getHeight();
+      const imgW  = pageW;
+      const imgH  = (canvas.height * pageW) / canvas.width;
+      let yPos = 0, remaining = imgH;
+      while (remaining > 0) {
+        pdf.addImage(canvas, 'PNG', 0, yPos, imgW, imgH);
+        remaining -= pageH;
+        yPos -= pageH;
+        if (remaining > 0) pdf.addPage();
+      }
+      pdf.save('AI-Readiness-Audit.pdf');
+      
+      document.body.removeChild(container);
+      btn.innerText = ogText;
+      btn.disabled = false;
+      
+      // Redirect
+      window.location.href = 'https://cal.com/cameltech/30min';
+    }).catch(err => {
+      console.error(err);
+      document.body.removeChild(container);
+      btn.innerText = ogText;
+      btn.disabled = false;
+      window.location.href = 'https://cal.com/cameltech/30min';
+    });
+  }
+</script>
+</body>
+</html>
