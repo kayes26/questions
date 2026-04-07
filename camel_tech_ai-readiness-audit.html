@@ -201,7 +201,7 @@
 
   /* BOOK PROMO */
   .book-promo {
-    display: flex; gap: 18px; align-items: flex-start;
+    display: flex; flex-direction: column;
     background: var(--card); border: 1px solid var(--border);
     border-radius: 12px; padding: 20px; margin-bottom: 20px;
     text-align: left;
@@ -227,9 +227,10 @@
   .book-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); font-weight: 600; margin-bottom: 6px; }
   .book-title { font-family: 'Century Gothic', 'Gill Sans', sans-serif; font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.35; }
   .book-body { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+  .btn-book-wrap { text-align: center; }
   .btn-book {
     display: inline-block; font-family: 'Oxygen', sans-serif;
-    font-size: 12px; font-weight: 700; padding: 8px 16px;
+    font-size: 12px; font-weight: 700; padding: 8px 20px;
     border-radius: 6px; border: 1px solid var(--yellow);
     background: transparent; color: var(--yellow); cursor: pointer;
     transition: var(--tr); text-decoration: none;
@@ -491,17 +492,19 @@ function buildResults() {
 
   const bookPromo =
     '<div class="book-promo">' +
-      '<div class="book-cover">' +
-        '<div class="book-cover-icon">📖</div>' +
-        '<div class="book-cover-title">Stress-Free AI</div>' +
-        '<div class="book-cover-sub">Executive Playbook</div>' +
+      '<div style="display:flex;gap:18px;align-items:flex-start;margin-bottom:16px">' +
+        '<div class="book-cover">' +
+          '<div class="book-cover-icon">📖</div>' +
+          '<div class="book-cover-title">Stress-Free AI</div>' +
+          '<div class="book-cover-sub">Executive Playbook</div>' +
+        '</div>' +
+        '<div class="book-info">' +
+          '<div class="book-label">Go Deeper</div>' +
+          '<div class="book-title">Stress-Free AI: The Executive Playbook</div>' +
+          '<div class="book-body">The methodology behind this audit is covered in depth in Stress-Free AI - developed across 100+ engagements with $1M-$50M founders. Worth reading before you plan your next move.</div>' +
+        '</div>' +
       '</div>' +
-      '<div class="book-info">' +
-        '<div class="book-label">Go Deeper</div>' +
-        '<div class="book-title">Stress-Free AI: The Executive Playbook</div>' +
-        '<div class="book-body">The methodology behind this audit is covered in depth in Stress-Free AI - developed across 100+ engagements with M-0M founders. Worth reading before you plan your next move.</div>' +
-        '<a class="btn-book" href="#" target="_blank">Read the playbook</a>' +
-      '</div>' +
+      '<div style="text-align:center"><a class="btn-book" href="#" target="_blank">Read the playbook</a></div>' +
     '</div>';
 
   document.getElementById('panel-results').innerHTML =
