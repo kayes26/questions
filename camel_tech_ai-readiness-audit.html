@@ -307,7 +307,6 @@
       <p>Enter your details to unlock your AI Readiness Level and download your personalized report.</p>
       <div class="input-group"><label>Full Name</label><input type="text" id="inputName" placeholder="Your name" /></div>
       <div class="input-group"><label>Work Email</label><input type="email" id="inputEmail" placeholder="you@company.com" /></div>
-      <div class="input-group"><label>Company Name <span style="color:var(--muted);font-size:11px">(optional)</span></label><input type="text" id="inputCompany" placeholder="Your company" /></div>
       <button class="btn btn-primary btn-full" id="submitBtn" onclick="submitAudit()">See My Results</button>
       <div class="status-msg" id="statusMsg"></div>
       <p class="privacy">🔒 No spam. Used only to send your report.</p>
@@ -434,7 +433,6 @@ function selectOption(dimId, score) {
 async function submitAudit() {
   const name    = document.getElementById('inputName').value.trim();
   const email   = document.getElementById('inputEmail').value.trim();
-  const company = document.getElementById('inputCompany').value.trim();
   const btn     = document.getElementById('submitBtn');
 
   if (!name) { showStatus('Please enter your name.', 'error'); return; }
