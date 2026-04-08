@@ -253,15 +253,22 @@ async function submitAudit(){
   btn.innerHTML='<span class="spinner"></span> Saving...';
   btn.disabled=true;
   const WEBHOOK_URL='https://sauna3.n8n.runn.to/webhook-test/ai-readiness-form';
-  try{
-    if(WEBHOOK_URL!=='YOUR_N8N_WEBHOOK_URL'){
-      await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({name,email,score:total,level:level.level,headline:level.headline,
-          next_step:level.next,dim1:answers[1]||0,dim2:answers[2]||0,dim3:answers[3]||0,
-          dim4:answers[4]||0,dim5:answers[5]||0,submitted_at:new Date().toISOString()})});
-    }
-  }catch(e){console.warn('Webhook:',e)}
-  setTimeout(()=>{goToStep(7)},700);
+try{
+  if(WEBHOOK_URL!=='YOUR_N8N_WEBHOOK_URL'){
+    await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        name, email, score:total, level:level.level, headline:level.headline, next_step:level.next,
+        dim1_name:'Process Documentation', dim1_score:answers[1]||0, dim1_text:DIMS[0].options.find(o=>o.score===(answers[1]||0))?.text||'',
+        dim2_name:'Data Centralization',   dim2_score:answers[2]||0, dim2_text:DIMS[1].options.find(o=>o.score===(answers[2]||0))?.text||'',
+        dim3_name:'Team Readiness',        dim3_score:answers[3]||0, dim3_text:DIMS[2].options.find(o=>o.score===(answers[3]||0))?.text||'',
+        dim4_name:'Leadership Clarity',    dim4_score:answers[4]||0, dim4_text:DIMS[3].options.find(o=>o.score===(answers[4]||0))?.text||'',
+        dim5_name:'Tool Integration',      dim5_score:answers[5]||0, dim5_text:DIMS[4].options.find(o=>o.score===(answers[5]||0))?.text||'',
+        submitted_at:new Date().toISOString()
+      })
+    });
+  }
+}catch(e){console.warn('Webhook:',e)}
+setTimeout(()=>{goToStep(7)},700);
 }
 function showStatus(msg,type){const el=document.getElementById('statusMsg');el.textContent=msg;el.className='status-msg'+(type?' '+type:'')}
 function getLevel(score){return LEVELS.find(l=>score>=l.range[0]&&score<=l.range[1])||LEVELS[0]}
