@@ -252,7 +252,7 @@ async function submitAudit(){
   const level=getLevel(total);
   btn.innerHTML='<span class="spinner"></span> Saving...';
   btn.disabled=true;
-  const WEBHOOK_URL='https://sauna3.n8n.runn.to/webhook-test/ai-readiness-form';
+  const WEBHOOK_URL='https://sauna3.n8n.runn.to/webhook/ai-readiness-form';
 try{
   if(WEBHOOK_URL!=='YOUR_N8N_WEBHOOK_URL'){
     await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},
