@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply - Learn to Enlight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brown: #3E2005; --brown-mid: #6B3A0F;
+  --teal: #00B4C8; --teal-dark: #008FA0;
+  --amber: #F5A623; --red: #E03030;
+  --cream: #FDFAF5; --cream-dark: #F0EAD6;
+  --text: #1A1208; --text-mid: #4A3520; --text-light: #7A6248;
+  --white: #FFFFFF;
+  --shadow: 0 4px 24px rgba(62,32,5,0.10);
+  --shadow-lg: 0 12px 48px rgba(62,32,5,0.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,250,245,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(62,32,5,0.08);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-icon{width:38px;height:38px;border-radius:9px;background:var(--brown);display:flex;align-items:center;justify-content:center;font-size:18px}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--brown);font-weight:700;line-height:1.1}
+.nav-logo-sub{font-size:0.65rem;color:var(--text-light);letter-spacing:0.08em;text-transform:uppercase}
+.nav-back{background:var(--brown);color:var(--white);padding:8px 20px;border-radius:100px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:background 0.2s}
+.nav-back:hover{background:var(--brown-mid)}
+
+/* HERO */
+.apply-hero{padding:100px 5% 60px;background:var(--brown);position:relative;overflow:hidden}
+.apply-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,180,200,0.10) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:700px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.30);color:var(--amber);padding:5px 14px;border-radius:100px;font-size:0.75rem;font-weight:600;letter-spacing:0.05em;margin-bottom:18px}
+.apply-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);font-weight:900;line-height:1.1;margin-bottom:16px}
+.apply-hero h1 span{color:var(--teal)}
+.apply-hero p{font-size:1rem;color:rgba(255,255,255,0.65);line-height:1.7;max-width:560px;margin-bottom:28px}
+.hero-chips{display:flex;gap:10px;flex-wrap:wrap}
+.hero-chip{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.80);padding:6px 14px;border-radius:100px;font-size:0.78rem;font-weight:500}
+
+/* DEMO BANNER */
+.demo-banner{background:rgba(0,180,200,0.12);border:1px solid rgba(0,180,200,0.25);border-radius:14px;padding:16px 22px;margin:28px 5% 0;display:flex;align-items:center;gap:14px}
+.demo-icon{font-size:1.8rem;flex-shrink:0}
+.demo-text strong{display:block;color:var(--teal-dark);font-weight:700;font-size:0.92rem;margin-bottom:3px}
+.demo-text span{font-size:0.83rem;color:var(--text-mid);line-height:1.5}
+.demo-btn{margin-left:auto;flex-shrink:0;background:var(--teal);color:var(--white);padding:9px 20px;border-radius:100px;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:background 0.2s}
+.demo-btn:hover{background:var(--teal-dark)}
+
+/* MAIN LAYOUT */
+.apply-main{display:grid;grid-template-columns:600px 1fr;gap:0;min-height:80vh}
+
+/* LEFT SIDEBAR */
+.apply-sidebar{background:var(--cream-dark);padding:40px 32px 40px 5%;border-right:1px solid rgba(62,32,5,0.08)}
+.sidebar-section{margin-bottom:32px}
+.sidebar-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.10em;color:var(--text-light);margin-bottom:14px}
+.sidebar-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--brown);font-weight:900;margin-bottom:6px}
+.sidebar-sub{font-size:0.80rem;color:var(--text-light);line-height:1.6;margin-bottom:16px}
+
+.batch-pick{display:flex;flex-direction:column;gap:10px}
+.batch-opt{border:2px solid rgba(62,32,5,0.12);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;background:var(--white)}
+.batch-opt:hover,.batch-opt.active{border-color:var(--teal);background:rgba(0,180,200,0.04)}
+.batch-opt-name{font-weight:700;color:var(--brown);font-size:0.88rem;margin-bottom:3px}
+.batch-opt-detail{font-size:0.75rem;color:var(--text-light)}
+.batch-opt-fee{font-size:0.78rem;color:var(--teal-dark);font-weight:600;margin-top:5px}
+
+.what-you-get{list-style:none;display:flex;flex-direction:column;gap:9px}
+.wyg-item{display:flex;align-items:flex-start;gap:8px;font-size:0.82rem;color:var(--text-mid);line-height:1.5}
+.wyg-icon{flex-shrink:0;margin-top:1px}
+
+.instructor-mini{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:12px;padding:12px 14px;border:1px solid rgba(62,32,5,0.08)}
+.instructor-mini img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:top}
+.im-name{font-weight:700;color:var(--brown);font-size:0.85rem}
+.im-cred{font-size:0.72rem;color:var(--text-light);margin-top:2px}
+
+/* RIGHT FORM AREA */
+.apply-form-area{background:var(--white);padding:24px 60px}
+.form-header{margin-bottom:16px;text-align:center}
+.form-header h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--brown);font-weight:900;margin-bottom:6px}
+.form-header p{font-size:0.85rem;color:var(--text-light);line-height:1.6}
+
+.clickup-wrap{border:1px solid rgba(62,32,5,0.10);border-radius:16px;overflow:hidden;max-width:860px;margin:0 auto}
+.clickup-wrap iframe{display:block;width:100%}
+
+.pay-trigger-section{margin-top:28px;padding:24px;background:linear-gradient(135deg,rgba(62,32,5,0.04),rgba(0,180,200,0.04));border:2px dashed rgba(0,180,200,0.30);border-radius:16px;text-align:center}
+.pay-trigger-section p{font-size:0.88rem;color:var(--text-mid);margin-bottom:16px;line-height:1.6}
+.pay-trigger-section strong{color:var(--brown)}
+.btn-pay-trigger{display:inline-flex;align-items:center;gap:8px;background:var(--brown);color:var(--white);padding:14px 32px;border-radius:100px;font-size:0.95rem;font-weight:700;border:none;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 16px rgba(62,32,5,0.25)}
+.btn-pay-trigger:hover{background:var(--brown-mid);transform:translateY(-2px)}
+
+/* PAYMENT MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(26,12,3,0.70);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--cream);border-radius:24px;width:100%;max-width:540px;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,0.30);transform:translateY(20px);transition:transform 0.3s}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-header{background:var(--brown);padding:28px 28px 24px;border-radius:24px 24px 0 0;position:relative}
+.modal-header h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);font-weight:900;margin-bottom:6px}
+.modal-header p{font-size:0.82rem;color:rgba(255,255,255,0.60)}
+.modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.15);border:none;color:var(--white);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+.modal-close:hover{background:rgba(255,255,255,0.25)}
+
+.modal-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(62,32,5,0.10)}
+.modal-tab{padding:16px;text-align:center;cursor:pointer;font-weight:600;font-size:0.88rem;color:var(--text-light);border-bottom:3px solid transparent;transition:all 0.2s;background:none;border-left:none;border-right:none;border-top:none}
+.modal-tab.active{color:var(--brown);border-bottom-color:var(--teal)}
+.modal-tab:hover{background:rgba(0,180,200,0.05)}
+
+.modal-body{padding:28px}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* bKash tab */
+.bkash-pref-note{background:rgba(245,166,35,0.10);border:1px solid rgba(245,166,35,0.25);border-radius:10px;padding:12px 16px;font-size:0.80rem;color:var(--text-mid);margin-bottom:20px;line-height:1.6}
+.bkash-pref-note strong{color:var(--brown-mid)}
+.bkash-steps{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.bkash-step{display:flex;gap:12px;align-items:flex-start;font-size:0.85rem;color:var(--text-mid);line-height:1.55}
+.step-num-circle{width:26px;height:26px;border-radius:50%;background:var(--brown);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0}
+.bkash-ref-box{background:rgba(224,48,48,0.07);border:1px solid rgba(224,48,48,0.20);border-radius:10px;padding:12px 16px;font-size:0.82rem;color:#C02020;font-weight:600;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.bkash-screenshot{background:var(--cream-dark);border-radius:12px;padding:16px;margin-bottom:20px;text-align:center}
+.bkash-screenshot p{font-size:0.75rem;color:var(--text-light);margin-bottom:10px}
+.bkash-mock{border:1px solid #E0D0C8;border-radius:12px;background:var(--white);padding:20px 16px;max-width:220px;margin:0 auto;text-align:center}
+.bkash-logo-mock{background:linear-gradient(135deg,#E2136E,#B01059);color:white;padding:6px 14px;border-radius:8px;font-weight:900;font-size:0.9rem;display:inline-block;margin-bottom:12px}
+.bkash-field-mock{background:#F5F5F5;border:1px solid #DDD;border-radius:6px;padding:8px 10px;font-size:0.75rem;color:#999;margin-bottom:8px;text-align:left}
+.bkash-ref-highlight{background:#FFF9C4;border:1px solid #F5A623;border-radius:6px;padding:8px 10px;font-size:0.75rem;color:#8B6000;font-weight:700;margin-bottom:8px;text-align:left}
+.btn-bkash{display:block;background:#E2136E;color:var(--white);padding:14px;border-radius:100px;font-size:0.92rem;font-weight:700;text-decoration:none;text-align:center;transition:all 0.2s}
+.btn-bkash:hover{background:#B01059;transform:translateY(-1px)}
+
+/* Bank tab */
+.bank-pref-note{background:rgba(0,180,200,0.08);border:1px solid rgba(0,180,200,0.20);border-radius:10px;padding:12px 16px;font-size:0.80rem;color:var(--text-mid);margin-bottom:20px;line-height:1.6}
+.bank-pref-note strong{color:var(--teal-dark)}
+.bank-details-box{background:var(--cream-dark);border-radius:14px;padding:20px;margin-bottom:20px}
+.bank-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(62,32,5,0.08);font-size:0.85rem}
+.bank-row:last-child{border-bottom:none}
+.bank-row-label{color:var(--text-light);font-size:0.78rem}
+.bank-row-val{color:var(--brown);font-weight:700}
+.bank-row-val.acc{font-size:1rem;color:var(--teal-dark);letter-spacing:0.04em}
+.copy-btn{background:var(--cream);border:1px solid rgba(62,32,5,0.15);color:var(--text-mid);padding:4px 10px;border-radius:6px;font-size:0.70rem;font-weight:600;cursor:pointer;transition:all 0.2s;flex-shrink:0}
+.copy-btn:hover{background:var(--teal);color:var(--white);border-color:var(--teal)}
+.bank-steps{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.bank-step{display:flex;gap:10px;font-size:0.83rem;color:var(--text-mid);line-height:1.55}
+.btn-telegram{display:block;background:linear-gradient(135deg,#2AABEE,#229ED9);color:var(--white);padding:14px;border-radius:100px;font-size:0.92rem;font-weight:700;text-decoration:none;text-align:center;transition:all 0.2s}
+.btn-telegram:hover{opacity:0.9;transform:translateY(-1px)}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.apply-hero,
+.demo-banner,
+.apply-main,
+.apply-sidebar,
+.apply-form-area,
+.clickup-wrap,
+.modal,
+.float-chat {
+  max-width: 100%;
+}
+
+.apply-main {
+  grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+}
+
+.apply-hero-grid,
+.bank-acc-wrap,
+.step-indicator {
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .apply-main {
+    grid-template-columns: 1fr !important;
+  }
+
+  .apply-sidebar {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(62,32,5,0.08);
+    padding: 32px 20px !important;
+  }
+
+  .apply-form-area {
+    padding: 28px 20px !important;
+  }
+
+  .apply-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .clickup-wrap {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0 16px;
+    height: 62px;
+  }
+
+  .nav-logo {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .nav-logo-text {
+    font-size: 0.95rem;
+  }
+
+  .nav-logo-sub {
+    font-size: 0.55rem;
+  }
+
+  .nav-back {
+    padding: 7px 14px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .apply-hero {
+    padding: 88px 16px 32px;
+    min-height: auto !important;
+  }
+
+  .apply-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .apply-hero h1 {
+    font-size: 2rem;
+  }
+
+  .apply-hero p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-inner {
+    max-width: 100%;
+  }
+
+  .hero-chips {
+    gap: 8px;
+  }
+
+  .hero-chip {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
+
+  .hero-video-note {
+    padding: 9px 12px !important;
+  }
+
+  .demo-banner {
+    margin: 20px 16px 0;
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .demo-btn {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .apply-sidebar,
+  .apply-form-area {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sidebar-section {
+    margin-bottom: 24px;
+  }
+
+  .batch-opt {
+    padding: 12px;
+  }
+
+  .wyg-item {
+    font-size: 0.8rem;
+  }
+
+  .pricing-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -4px;
+  }
+
+  .pricing-table-wrap table {
+    min-width: 500px;
+  }
+
+  .form-header {
+    text-align: left;
+  }
+
+  .form-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .form-header p {
+    font-size: 0.82rem;
+  }
+
+  .pay-section {
+    padding: 24px 18px !important;
+    border-radius: 16px !important;
+  }
+
+  .step-indicator {
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+  }
+
+  .step-badge {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .step-arrow {
+    transform: rotate(90deg);
+    font-size: 1rem !important;
+    text-align: center;
+  }
+
+  .pay-section h3 {
+    font-size: 1.15rem !important;
+  }
+
+  .btn-pay-trigger {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 20px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal {
+    max-width: 100%;
+    max-height: 88vh;
+    border-radius: 18px;
+  }
+
+  .modal-header {
+    padding: 22px 18px 18px;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .modal-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .modal-close {
+    top: 14px;
+    right: 14px;
+  }
+
+  .modal-tab {
+    padding: 12px 10px;
+    font-size: 0.8rem;
+  }
+
+  .modal-body {
+    padding: 18px;
+  }
+
+  .bank-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .bank-acc-wrap {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .bank-row-val.acc {
+    font-size: 0.95rem;
+    word-break: break-all;
+  }
+
+  .bank-step,
+  .bkash-step {
+    font-size: 0.82rem;
+  }
+
+  .btn-telegram,
+  .btn-bkash {
+    font-size: 0.9rem;
+    padding: 13px;
+  }
+
+  .float-chat {
+    bottom: 18px;
+    right: 16px;
+  }
+
+  .float-option {
+    font-size: 0.8rem;
+    padding: 9px 14px 9px 12px;
+  }
+
+  .float-main-btn {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .apply-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-badge {
+    font-size: 0.68rem;
+    padding: 5px 10px;
+  }
+
+  .hero-chip {
+    width: calc(50% - 4px);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-back {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+
+  .pricing-table-wrap table {
+    min-width: 460px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  nav {
+    padding: 0 14px !important;
+    height: 62px !important;
+    gap: 10px;
+  }
+
+  .nav-logo {
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .nav-logo-text {
+    font-size: 0.9rem !important;
+  }
+
+  .nav-logo-sub {
+    font-size: 0.52rem !important;
+  }
+
+  .nav-back {
+    padding: 7px 12px !important;
+    font-size: 0.72rem !important;
+    white-space: nowrap;
+  }
+
+  .apply-hero {
+    padding: 84px 16px 28px !important;
+    min-height: auto !important;
+  }
+
+  .apply-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
+  .hero-inner {
+    max-width: 100% !important;
+  }
+
+  .apply-hero h1 {
+    font-size: 1.9rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .apply-hero p {
+    font-size: 0.95rem !important;
+    margin-bottom: 18px !important;
+  }
+
+  .hero-chips {
+    gap: 8px !important;
+  }
+
+  .hero-chip {
+    font-size: 0.72rem !important;
+    padding: 6px 10px !important;
+  }
+
+  .hero-video-note {
+    padding: 9px 12px !important;
+  }
+
+  .demo-banner {
+    margin: 20px 16px 0 !important;
+    padding: 14px 16px !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+  }
+
+  .demo-btn {
+    width: 100% !important;
+    margin-left: 0 !important;
+    text-align: center !important;
+  }
+
+  .apply-main {
+    display: block !important;
+    min-height: auto !important;
+  }
+
+  .apply-sidebar,
+  .apply-form-area {
+    width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .pricing-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pricing-table-wrap table {
+    min-width: 480px;
+  }
+
+  .form-header {
+    text-align: left !important;
+  }
+
+  .pay-section {
+    padding: 22px 18px !important;
+    border-radius: 16px !important;
+  }
+
+  .step-indicator {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .step-badge {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .step-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+
+  .btn-pay-trigger {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 15px 20px !important;
+  }
+
+  .modal-overlay {
+    padding: 12px !important;
+  }
+
+  .modal {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 88vh !important;
+    border-radius: 18px !important;
+  }
+
+  .modal-header {
+    padding: 22px 18px 18px !important;
+  }
+
+  .modal-body {
+    padding: 18px !important;
+  }
+
+  .bank-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  .bank-acc-wrap {
+    width: 100% !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+  }
+
+  .bank-row-val.acc {
+    word-break: break-all;
+  }
+
+  .float-chat {
+    right: 16px !important;
+    bottom: 18px !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="https://res.cloudinary.com/ddvfu3qon/image/upload/v1776375549/download_1_zebj1y.png" alt="Learn to Enlight Logo" style="width:38px;height:38px;border-radius:9px;object-fit:contain;background:transparent;padding:0">
+    <div>
+      <div class="nav-logo-text">Learn to Enlight</div>
+    <div class="nav-logo-sub">ENRICH YOUR KNOWLEDGE</div>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<!-- HERO -->
+<div class="apply-hero" style="min-height:480px;display:flex;align-items:center">
+  <div class="apply-hero-grid" style="display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:center;width:100%">
+    <div class="hero-inner">
+      <div class="hero-badge">📋 Admission Open - 2026</div>
+      <h1>Apply for <span>Admission</span><br>to LTE Coaching</h1>
+      <p>Fill the form below to secure your child's spot. After submitting, you'll see the payment options. Seats are limited per batch.</p>
+      <div class="hero-chips">
+        <div class="hero-chip">📅 Classes: Fri & Sat</div>
+        <div class="hero-chip">📱 Fully Online</div>
+        <div class="hero-chip">🔔 Parent Notifications</div>
+        <div class="hero-chip">📹 Recorded Classes</div>
+      </div>
+    </div>
+    <div>
+    <div style="position:relative;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.35);border:2px solid rgba(255,255,255,0.10)">
+      <div style="position:relative;padding-bottom:56.25%;height:0">
+        <iframe
+          src="https://www.youtube.com/embed/nB1Q_KK-cO4"
+          title="Learn to Enlight - Class Preview"
+          frameborder="0"
+          allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+          allowfullscreen
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none">
+        </iframe>
+      </div>
+      <div class="hero-video-note" style="background:rgba(255,255,255,0.06);padding:10px 16px;display:flex;align-items:center;gap:8px">
+        <span style="font-size:0.75rem;color:rgba(255,255,255,0.60)">▶ Watch a real class before you apply</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FREE DEMO BANNER -->
+<div class="demo-banner">
+  <div class="demo-icon">🎓</div>
+  <div class="demo-text">
+    <strong>Not sure yet? Take a free demo class first!</strong>
+    <span>We offer one free class before you commit. See how we teach, ask questions, and then decide.</span>
+  </div>
+  <a href="https://t.me/LearntoEnlightbot" target="_blank" class="demo-btn">Book Free Class →</a>
+</div>
+
+<!-- MAIN -->
+<div class="apply-main">
+
+  <!-- SIDEBAR -->
+  <aside class="apply-sidebar">
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Select Your Batch</div>
+   <div class="batch-pick">
+    <div class="batch-opt active" onclick="selectBatch(this)">
+    <div class="batch-opt-name">🎯 Class 6 - Cadet Admission Preparation New Batch</div>
+    <div class="batch-opt-detail">Friday & Saturday only · 9:00–10:15 AM & 3:00–4:15 PM</div>
+    <div class="batch-opt-detail">গণিত + সাধারণ জ্ঞান · Cadet Admission Course</div>
+    <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(62,32,5,0.08);font-size:0.73rem;color:var(--text-light);line-height:1.6">
+    📌 ক্যাডেট ভর্তি পরীক্ষার সকল প্রশ্ন আলোচনা + ষষ্ঠ শ্রেণীর গণিত বই সম্পূর্ণ শেষ করা
+  </div>
+  <div class="batch-opt-fee" style="color:var(--teal-dark);margin-top:6px">Only monthly fee · No admission fee · No hidden charges</div>
+</div>
+        <div class="batch-opt" onclick="selectBatch(this)">
+          <div class="batch-opt-name">🎓 Class 5 - Main Batch</div>
+          <div class="batch-opt-detail">Fri & Sat · 11:00 AM - 12:30 PM</div>
+          <div class="batch-opt-detail">Math · Science · General Knowledge</div>
+          <div class="batch-opt-fee" style="color:var(--teal-dark)">Monthly fee - no admission fee - no hidden charges</div>
+        </div>
+      </div>
+    </div>
+
+ <div class="sidebar-section">
+  <div class="sidebar-label">What You Get</div>
+  <ul class="what-you-get">
+    <li class="wyg-item"><span class="wyg-icon">📹</span>All classes recorded - rewatch anytime</li>
+    <li class="wyg-item"><span class="wyg-icon">📊</span>Personal student portal with marks & feedback</li>
+    <li class="wyg-item"><span class="wyg-icon">📝</span>Weekly exam every class + monthly assessment</li>
+    <li class="wyg-item"><span class="wyg-icon">🔔</span>Real-time Telegram notifications to parents</li>
+    <li class="wyg-item"><span class="wyg-icon">📚</span>Notes, question papers & homework tracking</li>
+    <li class="wyg-item"><span class="wyg-icon">⏱️</span>Timed exams - delayed submission alerts</li>
+    <li class="wyg-item"><span class="wyg-icon">🎯</span>100% focused on Cadet College admission</li>
+    <li class="wyg-item"><span class="wyg-icon">🖥️</span>Monthly payment active = dashboard access active. Stop payment = access paused</li>
+    <li class="wyg-item"><span class="wyg-icon">🔓</span>Pay for the full year = permanent access for the entire year</li>
+    <li class="wyg-item"><span class="wyg-icon">✅</span><strong>No admission fee - no hidden charges</strong></li>
+  </ul>
+</div>
+
+<!-- PRICING TABLE — shows only for Class 6 -->
+<div class="sidebar-section" id="class6-pricing" style="display:block">
+  <div class="sidebar-label">Payment Plans — Class 6</div>
+  <div class="pricing-table-wrap">
+  <table style="width:100%;border-collapse:collapse;font-size:0.78rem">
+    <thead>
+      <tr style="background:var(--brown);color:white;text-align:left">
+        <th style="padding:8px 10px;border-radius:8px 0 0 0">Plan</th>
+        <th style="padding:8px 10px">Total</th>
+        <th style="padding:8px 10px">Per Month</th>
+        <th style="padding:8px 10px;border-radius:0 8px 0 0">You Save</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:var(--white);border-bottom:1px solid rgba(62,32,5,0.08)">
+        <td style="padding:8px 10px;color:var(--text-mid);font-weight:600">মাসিক</td>
+        <td style="padding:8px 10px;color:var(--text-mid)">২,২০০৳</td>
+        <td style="padding:8px 10px;color:var(--text-mid)">২,২০০৳</td>
+        <td style="padding:8px 10px;color:var(--text-light)">—</td>
+      </tr>
+      <tr style="background:var(--cream);border-bottom:1px solid rgba(62,32,5,0.08)">
+        <td style="padding:8px 10px;color:var(--text-mid);font-weight:600">৩ মাস</td>
+        <td style="padding:8px 10px;color:var(--text-mid)">৬,০০০৳</td>
+        <td style="padding:8px 10px;color:var(--text-mid)">২,০০০৳</td>
+        <td style="padding:8px 10px;color:#2a7a2a;font-weight:700">৬০০৳ সাশ্রয়</td>
+      </tr>
+      <tr style="background:var(--white);border-bottom:1px solid rgba(62,32,5,0.08)">
+        <td style="padding:8px 10px;color:var(--text-mid);font-weight:600">৬ মাস</td>
+        <td style="padding:8px 10px;color:var(--text-mid)">১১,০০০৳</td>
+        <td style="padding:8px 10px;color:var(--text-mid)">১,৮৩৩৳</td>
+        <td style="padding:8px 10px;color:#2a7a2a;font-weight:700">২,২০০৳ সাশ্রয়</td>
+      </tr>
+      <tr style="background:rgba(0,180,200,0.06);border-bottom:1px solid rgba(62,32,5,0.08)">
+        <td style="padding:8px 10px;color:var(--teal-dark);font-weight:700">৮ মাস ⭐</td>
+        <td style="padding:8px 10px;color:var(--teal-dark);font-weight:700">১৪,০০০৳</td>
+        <td style="padding:8px 10px;color:var(--teal-dark);font-weight:700">১,৭৫০৳</td>
+        <td style="padding:8px 10px;color:#2a7a2a;font-weight:700">৩,৬০০৳ সাশ্রয়</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div style="font-size:0.70rem;color:var(--text-light);margin-top:6px;line-height:1.5">⭐ ৮ মাস = পুরো বছর · সর্বোচ্চ সাশ্রয় + স্থায়ী ড্যাশবোর্ড এক্সেস</div>
+</div>
+
+<!-- REFERRAL — generic, all batches -->
+<div class="sidebar-section">
+  <div class="sidebar-label">🎁 Referral Program</div>
+  <div style="background:rgba(245,166,35,0.10);border:1px solid rgba(245,166,35,0.25);border-radius:10px;padding:12px 14px;font-size:0.80rem;color:var(--text-mid);line-height:1.65">
+    কোনো শিক্ষার্থী যদি <strong>৩ জন নতুন শিক্ষার্থী</strong> ভর্তি করায়, পরের মাসে তার জন্য <strong style="color:var(--brown-mid)">২০% ফি ছাড়</strong> প্রযোজ্য হবে।
+  </div>
+</div>
+
+<!-- BEST STUDENT — generic, all batches -->
+<div class="sidebar-section">
+  <div class="sidebar-label">🏆 Best Student Award</div>
+  <div style="background:rgba(0,180,200,0.07);border:1px solid rgba(0,180,200,0.20);border-radius:10px;padding:12px 14px;font-size:0.80rem;color:var(--text-mid);line-height:1.65">
+    প্রতি <strong>৩ মাস পর পর </strong> সামগ্রিক পারফরম্যান্সের ভিত্তিতে সেরা শিক্ষার্থীকে <strong style="color:var(--teal-dark)">বিশেষ উপহার</strong> প্রদান করা হবে।
+  </div>
+</div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Instructor</div>
+      <div class="instructor-mini">
+        <img src="https://res.cloudinary.com/ddvfu3qon/image/upload/v1776375426/Image_17-04-2026_at_3.20_AM_vitjzo.png" alt="Md. Kayes">
+        <div>
+          <div class="im-name">Md. Kayes</div>
+          <div class="im-cred">Ex-Cadet, Cumilla Cadet College</div>
+          <div class="im-cred">CSE Engineer, IUT</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Need Help?</div>
+      <a href="https://t.me/LearntoEnlightbot" target="_blank" style="display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#2AABEE,#229ED9);color:white;padding:11px 16px;border-radius:10px;text-decoration:none;font-size:0.83rem;font-weight:600">
+        <span>💬</span> Message on Telegram
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- FORM AREA -->
+  <div class="apply-form-area">
+    <div class="form-header">
+      <h2>Admission Application Form</h2>
+      <p>Fill all required fields carefully. After submitting, clear the payment to complete your admission.</p>
+  </div>
+
+    <div class="clickup-wrap">
+      <iframe class="clickup-embed clickup-dynamic-height"
+        id="batchIframe"
+        src="https://forms.clickup.com/3375150/f/3701e-105198/96ZZ16IA6EMHD8FE8U?Fee=2200"
+        onwheel=""
+        width="100%"
+        style="background: transparent; border: none;">
+      </iframe>
+      <script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
+    </div>
+
+<div id="pay" class="pay-section" style="margin-top:28px;background:linear-gradient(135deg,var(--brown),#5C3010);border-radius:20px;padding:32px 40px;text-align:center;box-shadow:0 8px 32px rgba(62,32,5,0.25)">
+  
+  <!-- Step indicator -->
+  <div class="step-indicator" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px">
+    <div class="step-badge" style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.10);padding:8px 16px;border-radius:100px">
+      <span style="width:22px;height:22px;border-radius:50%;background:#4CAF50;display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:white">✓</span>
+      <span style="font-size:0.82rem;color:rgba(255,255,255,0.80);font-weight:600">Step 1: Form Submitted</span>
+    </div>
+    <div class="step-arrow" style="color:rgba(255,255,255,0.30);font-size:1.2rem">→</div>
+    <div class="step-badge" style="display:flex;align-items:center;gap:8px;background:rgba(0,180,200,0.20);border:1px solid rgba(0,180,200,0.40);padding:8px 16px;border-radius:100px">
+      <span style="width:22px;height:22px;border-radius:50%;background:var(--teal);display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:white">2</span>
+      <span style="font-size:0.82rem;color:var(--teal);font-weight:700">Step 2: Complete Payment</span>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:white;font-weight:900;margin-bottom:8px">One last step to confirm your seat</h3>
+  <p style="font-size:0.88rem;color:rgba(255,255,255,0.60);margin-bottom:24px;line-height:1.6">Your form has been received. Complete the payment below to secure your child's place in the batch. Seats are limited.</p>
+
+  <button class="btn-pay-trigger" onclick="openPayModal()" style="background:var(--teal);font-size:1rem;padding:16px 40px;box-shadow:0 4px 20px rgba(0,180,200,0.40)">
+    💳 Proceed to Payment →
+  </button>
+
+  <p style="font-size:0.73rem;color:rgba(255,255,255,0.35);margin-top:16px">
+    By proceeding you agree to our 
+    <a href="https://drive.google.com/file/d/1fqLg1zkJLScobzrq5UE5F4Ok3LMolckc/view?usp=sharing" target="_blank" style="color:rgba(255,255,255,0.55);font-weight:600;text-decoration:underline">Terms & Conditions</a>
+  </p>
+</div>
+
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal-overlay" id="payModal" onclick="closeIfOutside(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <h3>Complete Your Payment</h3>
+      <p>Choose your preferred payment method below</p>
+      <button class="modal-close" onclick="closePayModal()">✕</button>
+    </div>
+
+    <div class="modal-tabs">
+      <button class="modal-tab active" onclick="switchTab('bank', this)">🏦 Bank Transfer <small style="display:block;font-size:0.68rem;font-weight:400;margin-top:2px">(Preferred)</small></button>
+      <button class="modal-tab" onclick="switchTab('bkash', this)">📱 bKash</button>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- BANK TAB (default) -->
+      <div class="tab-content active" id="tab-bank">
+        <div class="bank-pref-note">
+          <strong>✅ We prefer bank transfer</strong> - It is more reliable, has no extra charge, and the record is cleaner. Please use bank payment if possible.
+        </div>
+        <div class="sidebar-label" style="margin-bottom:12px">Islami Bank Bangladesh - Account Details</div>
+        <div class="bank-details-box">
+          <div class="bank-row">
+            <span class="bank-row-label">Account Name</span>
+            <span class="bank-row-val">Md Kayes</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-row-label">Account Number</span>
+            <div class="bank-acc-wrap" style="display:flex;align-items:center;gap:8px">
+              <span class="bank-row-val acc" id="accNum">20501270202959812</span>
+              <button class="copy-btn" onclick="copyAcc(this)">Copy</button>
+            </div>
+          </div>
+          <div class="bank-row">
+            <span class="bank-row-label">Bank</span>
+            <span class="bank-row-val">Islami Bank Bangladesh Ltd</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-row-label">Branch</span>
+            <span class="bank-row-val">Zinzira</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-row-label">Routing No</span>
+            <span class="bank-row-val">125277097</span>
+          </div>
+        </div>
+        <div class="sidebar-label" style="margin-bottom:10px">Steps to complete payment</div>
+        <ul class="bank-steps">
+          <li class="bank-step"><span class="step-num-circle">1</span>Transfer the admission fee to the account above via your bank app or any mobile banking</li>
+          <li class="bank-step"><span class="step-num-circle">2</span>Take a screenshot of the payment confirmation</li>
+          <li class="bank-step"><span class="step-num-circle">3</span>Send the screenshot to our Telegram bot with your child's full name</li>
+        </ul>
+        <a href="https://t.me/LearntoEnlightbot" target="_blank" class="btn-telegram">
+          📤 Send Payment Screenshot on Telegram
+        </a>
+      </div>
+
+      <!-- BKASH TAB -->
+      <div class="tab-content" id="tab-bkash">
+        <div class="bkash-pref-note">
+          <strong>⚠️ Note:</strong> We prefer bank transfer. If bKash is more convenient for you, you can use it - but please make sure to add the student's full name in the Payment Reference field. This is mandatory.
+        </div>
+        <div class="sidebar-label" style="margin-bottom:10px">How to pay via bKash</div>
+        <ul class="bkash-steps">
+          <li class="bkash-step"><span class="step-num-circle">1</span>Click the bKash payment button below to open the payment page</li>
+          <li class="bkash-step"><span class="step-num-circle">2</span>Enter the correct admission fee amount</li>
+          <li class="bkash-step"><span class="step-num-circle">3</span><strong>In the "Payment Reference" field - type your child's full name. This is required.</strong></li>
+          <li class="bkash-step"><span class="step-num-circle">4</span>Complete the payment and take a screenshot</li>
+          <li class="bkash-step"><span class="step-num-circle">5</span>Send the screenshot to our Telegram bot</li>
+        </ul>
+        <div class="bkash-ref-box">
+          ⚠️ Payment Reference = Student's Full Name (required - without this we cannot identify your payment)
+        </div>
+        <div class="bkash-screenshot">
+          <p>Fill the reference field like this example ↓</p>
+          <div class="bkash-mock">
+            <div class="bkash-logo-mock">bKash Payment</div>
+            <div class="bkash-field-mock">Amount: ২,৫০০</div>
+            <div class="bkash-ref-highlight">Payment Reference: Mohammed Raihan ← Student name here</div>
+            <div style="font-size:0.65rem;color:#999;margin-top:4px">✓ Use bKash wallet number as contact</div>
+          </div>
+        </div>
+        <a href="https://shop.bkash.com/hedayeter-sondhane-islamic-sho/paymentlink/default-payment" target="_blank" class="btn-bkash">
+          Pay via bKash →
+        </a>
+        <div style="margin-top:16px">
+          <a href="https://t.me/LearntoEnlightbot" target="_blank" class="btn-telegram">
+            📤 Send Payment Screenshot on Telegram
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const batchForms = {
+  0: 'https://forms.clickup.com/3375150/f/3701e-105198/96ZZ16IA6EMHD8FE8U?Fee=2200',
+  1: 'https://forms.clickup.com/3375150/f/3701e-99418/0Z37RSGRGIXY3CF349?Fee=2200'
+};
+
+function selectBatch(el) {
+  document.querySelectorAll('.batch-opt').forEach((b, i) => {
+    b.classList.remove('active');
+    if (b === el) {
+      document.getElementById('batchIframe').src = batchForms[i];
+      // Show pricing table only for Class 6 (index 0)
+      const pricing = document.getElementById('class6-pricing');
+      if (pricing) pricing.style.display = i === 0 ? 'block' : 'none';
+    }
+  });
+  el.classList.add('active');
+}
+function openPayModal() {
+  document.getElementById('payModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePayModal() {
+  document.getElementById('payModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeIfOutside(e) {
+  if (e.target === document.getElementById('payModal')) closePayModal();
+}
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+function copyAcc(btn) {
+  navigator.clipboard.writeText('20501270202959812');
+  btn.textContent = 'Copied!';
+  btn.style.background = 'var(--teal)';
+  btn.style.color = 'white';
+  setTimeout(() => {
+    btn.textContent = 'Copy';
+    btn.style.background = '';
+    btn.style.color = '';
+  }, 2000);
+}
+</script>
+
+<!-- FLOATING CHAT BUTTON -->
+<div class="float-chat" id="floatChat">
+  <div class="float-options" id="floatOptions">
+    <a href="https://wa.me/8801701064194" target="_blank" class="float-option whatsapp">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.527 5.845L.057 23.535a.75.75 0 0 0 .912.912l5.733-1.484A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.523-5.188-1.432l-.372-.22-3.853.998 1.028-3.758-.242-.387A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="https://t.me/LearntoEnlightbot" target="_blank" class="float-option telegram">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      <span>Telegram</span>
+    </a>
+  </div>
+  <button class="float-main-btn" id="floatMainBtn" onclick="toggleFloat()" aria-label="Contact Us">
+    <span class="float-icon-open">💬</span>
+    <span class="float-icon-close" style="display:none">✕</span>
+  </button>
+</div>
+
+<style>
+.float-chat{position:fixed;bottom:28px;right:24px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.float-options{display:flex;flex-direction:column;gap:10px;align-items:flex-end;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity 0.25s ease,transform 0.25s ease}
+.float-options.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.float-option{display:flex;align-items:center;gap:10px;padding:10px 18px 10px 14px;border-radius:100px;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:700;color:white;box-shadow:0 4px 16px rgba(0,0,0,0.20);transition:transform 0.15s,box-shadow 0.15s;white-space:nowrap}
+.float-option:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.25)}
+.float-option.whatsapp{background:linear-gradient(135deg,#25D366,#128C7E)}
+.float-option.telegram{background:linear-gradient(135deg,#2AABEE,#229ED9)}
+.float-main-btn{width:56px;height:56px;border-radius:50%;background:#3E2005;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 20px rgba(62,32,5,0.35);transition:transform 0.2s,background 0.2s;color:white}
+.float-main-btn:hover{background:#6B3A0F;transform:scale(1.08)}
+.float-main-btn.active{background:#00B4C8}
+</style>
+
+<script>
+function toggleFloat(){
+  const opts=document.getElementById('floatOptions');
+  const btn=document.getElementById('floatMainBtn');
+  const open=document.querySelector('.float-icon-open');
+  const close=document.querySelector('.float-icon-close');
+  const isOpen=opts.classList.contains('open');
+  opts.classList.toggle('open');
+  btn.classList.toggle('active');
+  open.style.display=isOpen?'':'none';
+  close.style.display=isOpen?'none':'';
+}
+document.addEventListener('click',function(e){
+  const chat=document.getElementById('floatChat');
+  if(!chat.contains(e.target)){
+    document.getElementById('floatOptions').classList.remove('open');
+    document.getElementById('floatMainBtn').classList.remove('active');
+    document.querySelector('.float-icon-open').style.display='';
+    document.querySelector('.float-icon-close').style.display='none';
+  }
+});
+</script>
+
+</body>
+</html>
