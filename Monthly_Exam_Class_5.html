@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 5 - Monthly Examination</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        
+        .watermark {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .watermark span {
+            transform: rotate(-25deg);
+            font-size: 64px;
+            font-weight: 900;
+            color: rgba(0,0,0,.10);
+            letter-spacing: .6px;
+            mix-blend-mode: multiply;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 22px;
+            margin-bottom: 3px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .student-info div span {
+            display: inline-block;
+            border-bottom: 1px dotted #333;
+            min-width: 180px;
+            margin-left: 5px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            margin: 20px 0 15px 0;
+        }
+        
+        .question {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .question-header {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .marks-badge {
+            float: right;
+            background: #28a745;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        .sub-question {
+            margin: 8px 0 8px 20px;
+            line-height: 1.9;
+        }
+        
+        .english {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .blank-line {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 1px dotted #333;
+            margin: 0 3px;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #333;
+            font-size: 14px;
+        }
+        
+        .note {
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .wrap {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Watermark -->
+    <div class="watermark">
+        <span>Md Kayes<br>Learn to Enlight</span>
+    </div>
+    
+    <div class="wrap">
+        <!-- Header -->
+        <div class="header">
+            <h1>মাসিক পরীক্ষা</h1>
+            <h1>MONTHLY EXAMINATION</h1>
+            <h1 style="font-size: 18px; color: #555; margin-top: 5px;">পঞ্চম শ্রেণী (Class 5)</h1>
+        </div>
+        
+        <!-- Info -->
+        <div class="info-row">
+            <div><strong>সময় (Time):</strong> ৪০ মিনিট (40 Minutes) - জমা দেওয়ার সময়সহ (including submission time)</div>
+            <div><strong>পূর্ণমান (Total Marks):</strong> ৪০ (40)</div>
+        </div>
+        
+        <!-- Student Info -->
+        <div class="student-info">
+            <div>নাম (Name): <span></span></div>
+            <div>রোল (Roll): <span></span></div>
+            <div>শ্রেণী (Class): পঞ্চম (Five)</div>
+            <div>তারিখ (Date): <span></span></div>
+        </div>
+        
+        <div class="note">
+            <strong>নির্দেশনা (Instructions):</strong> সকল প্রশ্নের উত্তর দিতে হবে। হিসাবের ধাপগুলো স্পষ্টভাবে দেখাতে হবে।
+            <br><span class="english">(Answer all questions. Show all working steps clearly.)</span>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION A: MATH -->
+        <div class="section-title">বিভাগ ক: গণিত (SECTION A: MATHEMATICS) — ২৪ নম্বর (24 Marks)</div>
+        
+        <div class="question">
+            <div class="question-header">
+                ১। মৌলিক উৎপাদক পদ্ধতিতে ল.সা.গু ও গ.সা.গু বের করো:
+                <br><span class="english">(Find LCM and HCF using prime factorization method:)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> ১৮, ২৭ এবং ৪৫<br>
+                <span class="english">(18, 27 and 45)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> ৩২, ৫৬ এবং ৮০<br>
+                <span class="english">(32, 56 and 80)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ২। মিশ্র ভগ্নাংশকে অপ্রকৃত ভগ্নাংশে এবং অপ্রকৃত ভগ্নাংশকে মিশ্র ভগ্নাংশে রূপান্তর করো:
+                <br><span class="english">(Convert mixed to improper and improper to mixed fractions:)</span>
+                <span class="marks-badge">[২ নম্বর / 2 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [১ নম্বর]</strong> ৪ ৩/৭ = <span class="blank-line"></span> (মিশ্র → অপ্রকৃত)<br>
+                <span class="english">(Mixed → Improper)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [১ নম্বর]</strong> ৩৮/৯ = <span class="blank-line"></span> (অপ্রকৃত → মিশ্র)<br>
+                <span class="english">(Improper → Mixed)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৩। ভগ্নাংশের গুণ ও ভাগ করো:
+                <br><span class="english">(Multiply and divide the fractions:)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [১ নম্বর]</strong> ৩/৫ × ৭/৯ = <span class="blank-line"></span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [১ নম্বর]</strong> ৫/৮ ÷ ৩/৪ = <span class="blank-line"></span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>গ) [১ নম্বর]</strong> ৪/৭ × ১৪ = <span class="blank-line"></span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ঘ) [১ নম্বর]</strong> ২০/৯ ÷ ৫ = <span class="blank-line"></span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৪। একটি শ্রেণীকক্ষে ৩৫ জন ছেলে এবং ৪৫ জন মেয়ে আছে। তাদেরকে সমান সংখ্যক দলে ভাগ করতে হবে যাতে প্রতিটি দলে ছেলে ও মেয়ের সংখ্যা সমান থাকে।
+                <br><span class="english">(A classroom has 35 boys and 45 girls. They need to be divided into equal groups so that each group has the same number of boys and girls.)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [১ নম্বর]</strong> সর্বাধিক কতটি দল তৈরি করা যাবে?<br>
+                <span class="english">(What is the maximum number of groups that can be formed?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> প্রতিটি দলে মোট কতজন শিক্ষার্থী থাকবে? প্রতি দলে কতজন ছেলে ও কতজন মেয়ে থাকবে?<br>
+                <span class="english">(How many total students will be in each group? How many boys and girls in each group?)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৫। এককের নিয়মে সমাধান করো (Solve using unitary method):
+                <span class="marks-badge">[৮ নম্বর / 8 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [৪ নম্বর]</strong> একটি কারখানায় ২০ জন শ্রমিক দৈনিক ৮ ঘণ্টা কাজ করে ১৫ দিনে একটি কাজ শেষ করে। যদি ২৫ জন শ্রমিক দৈনিক ১০ ঘণ্টা কাজ করে, তাহলে কত দিনে একই কাজ শেষ করতে পারবে?<br>
+                <span class="english">(In a factory, 20 workers working 8 hours daily complete a job in 15 days. If 25 workers work 10 hours daily, in how many days can they complete the same job?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [৪ নম্বর]</strong> একটি গাড়ি ৬০ কি.মি./ঘণ্টা বেগে ৪ ঘণ্টায় একটি দূরত্ব অতিক্রম করে। ঐ গাড়িটি যদি ৮০ কি.মি./ঘণ্টা বেগে চলে, তাহলে একই দূরত্ব অতিক্রম করতে কত সময় লাগবে?<br>
+                <span class="english">(A car travels a distance in 4 hours at 60 km/h speed. If the same car travels at 80 km/h speed, how much time will it take to cover the same distance?)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৬। দশমিক সংখ্যার গুণ ও ভাগ করো:
+                <br><span class="english">(Multiply and divide decimal numbers:)</span>
+                <span class="marks-badge">[৩ নম্বর / 3 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [১ নম্বর]</strong> একটি গাড়ি এক ঘণ্টায় ৪২.৮ কি.মি. যায়। ১৫.৫ ঘণ্টায় গাড়িটি কত কি.মি. যায়?<br>
+                <span class="english">(A car travels 42.8 km in one hour. How many km will it travel in 15.5 hours?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [১ নম্বর]</strong> একটি আয়তাকার জমির প্রস্থ ৪.৭৫ মিটার এবং দৈর্ঘ্য ১২.৮ মিটার। জমিটির ক্ষেত্রফল কত?<br>
+                <span class="english">(A rectangular land has width 4.75 meters and length 12.8 meters. What is the area?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>গ) [১ নম্বর]</strong> একটি গাড়ি ২.৫ ঘণ্টায় ১১৪.৫ কি.মি. যায়। গাড়িটি এক ঘণ্টায় কত কি.মি. যায়?<br>
+                <span class="english">(A car travels 114.5 km in 2.5 hours. How many km does it travel in one hour?)</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION B: SCIENCE -->
+        <div class="section-title">বিভাগ খ: বিজ্ঞান (SECTION B: SCIENCE) — ৮ নম্বর (8 Marks)</div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৭। খাদ্য ও পুষ্টি সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <br><span class="english">(Answer the following questions about food and nutrition:)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> সুষম খাদ্য কাকে বলে? সুষম খাদ্যের প্রধান উপাদানগুলোর নাম লেখো।<br>
+                <span class="english">(What is balanced diet? Write the main components of balanced diet.)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> শর্করা ও প্রোটিন জাতীয় খাদ্যের উৎস এবং কাজ লেখো।<br>
+                <span class="english">(Write the sources and functions of carbohydrate and protein foods.)</span>
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৮। খাদ্য সংরক্ষণ সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <br><span class="english">(Answer the following questions about food preservation:)</span>
+                <span class="marks-badge">[৪ নম্বর / 4 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> খাদ্য সংরক্ষণ কেন প্রয়োজন? তিনটি কারণ লেখো।<br>
+                <span class="english">(Why is food preservation necessary? Write three reasons.)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> খাদ্য সংরক্ষণের চারটি পদ্ধতির নাম লেখো।<br>
+                <span class="english">(Write four methods of food preservation.)</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- SECTION C: GK -->
+        <div class="section-title">বিভাগ গ: সাধারণ জ্ঞান (SECTION C: GENERAL KNOWLEDGE) — ৮ নম্বর (8 Marks)</div>
+        
+        <div class="note" style="background: #e3f2fd; border-left-color: #2196f3;">
+            <strong>বিষয়:</strong> পাকিস্তান আমল (১৯৪৭-১৯৭১) - Pakistan Period (1947-1971)
+        </div>
+        
+        <div class="question">
+            <div class="question-header">
+                ৯। নিচের প্রশ্নগুলোর সংক্ষিপ্ত উত্তর দাও:
+                <br><span class="english">(Answer the following questions briefly:)</span>
+                <span class="marks-badge">[৮ নম্বর / 8 Marks]</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ক) [০.৫ নম্বর]</strong> পাকিস্তান কত সালে সৃষ্টি হয়?<br>
+                <span class="english">(In which year was Pakistan created?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>খ) [০.৫ নম্বর]</strong> ঢাকা বিশ্ববিদ্যালয় কবে প্রতিষ্ঠিত হয়?<br>
+                <span class="english">(When was Dhaka University established?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>গ) [১ নম্বর]</strong> দৈনিক ইত্তেফাক কত সালে প্রতিষ্ঠিত হয়? এর সম্পাদক কে ছিলেন?<br>
+                <span class="english">(In which year was Daily Ittefaq established? Who was its editor?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ঘ) [১ নম্বর]</strong> বাংলা একাডেমি কবে প্রতিষ্ঠিত হয়? এর প্রথম পরিচালক কে ছিলেন?<br>
+                <span class="english">(When was Bangla Academy established? Who was its first director?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ঙ) [১ নম্বর]</strong> পাকিস্তানের প্রথম প্রধানমন্ত্রী কে ছিলেন? তিনি কত সাল পর্যন্ত দায়িত্ব পালন করেন?<br>
+                <span class="english">(Who was the first Prime Minister of Pakistan? Until which year did he serve?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>চ) [১ নম্বর]</strong> আইয়ুব খান কত সাল থেকে কত সাল পর্যন্ত সামরিক শাসক ছিলেন?<br>
+                <span class="english">(From which year to which year was Ayub Khan military ruler?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ছ) [১ নম্বর]</strong> পূর্ব পাকিস্তানে কেন্দ্রীয় সরকারের চাকরিতে বাঙালিদের শতকরা কত ভাগ ছিল?<br>
+                <span class="english">(What percentage of East Pakistanis were in central government jobs?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>জ) [১ নম্বর]</strong> উন্নয়ন বাজেটে পূর্ব ও পশ্চিম পাকিস্তানের শতকরা হার কত ছিল?<br>
+                <span class="english">(What was the percentage distribution of development budget between East and West Pakistan?)</span>
+            </div>
+            
+            <div class="sub-question">
+                <strong>ঝ) [১ নম্বর]</strong> রপ্তানি আয়ে পূর্ব পাকিস্তানের অবদান কত শতাংশ ছিল?<br>
+                <span class="english">(What percentage was East Pakistan's contribution to export income?)</span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div style="font-weight: 600; font-size: 15px; margin-bottom: 5px;">
+                প্রশ্নপত্রের সমাপ্তি (End of Question Paper)
+            </div>
+            <div style="margin-top: 10px; color: #666;">
+                <strong>Md Kayes</strong><br>
+                <strong>Learn to Enlight</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
