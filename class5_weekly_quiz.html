@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 5 - Weekly Quiz | ক্যাডেট কলেজ প্রস্তুতি</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.8;
+            color: #222;
+        }
+
+        /* Watermark - MANDATORY */
+        .watermark {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+        }
+        .watermark span {
+            transform: rotate(-25deg);
+            font-size: 64px;
+            font-weight: 900;
+            color: rgba(0,0,0,.10);
+            letter-spacing: .6px;
+            mix-blend-mode: multiply;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Container */
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            border-radius: 2px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #333;
+            padding-bottom: 18px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #111;
+        }
+        .header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 2px;
+        }
+        .header .subtitle {
+            font-size: 14px;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        /* Info Row */
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        /* Student Info */
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 20px;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .student-info div {
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 4px;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+            background: #333;
+            color: white;
+            padding: 9px 16px;
+            margin: 25px 0 18px 0;
+            letter-spacing: 0.3px;
+        }
+
+        /* Questions */
+        .question {
+            margin-bottom: 22px;
+        }
+        .question-text {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 3px;
+            line-height: 1.7;
+        }
+        .question-eng {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        /* Sub-questions */
+        .sub-question {
+            padding-left: 30px;
+            margin-bottom: 8px;
+            font-size: 14.5px;
+            line-height: 1.7;
+        }
+        .sub-question .eng {
+            font-size: 12.5px;
+            color: #666;
+            display: block;
+            font-style: italic;
+        }
+
+        /* Marks Badge */
+        .marks-badge {
+            float: right;
+            background: #28a745;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+
+        /* Divider */
+        hr {
+            border: none;
+            border-top: 1.5px solid #ddd;
+            margin: 20px 0;
+        }
+
+        /* Instructions */
+        .instructions {
+            background: #fff9e6;
+            border: 1px solid #f0d060;
+            border-radius: 4px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #665500;
+        }
+        .instructions strong {
+            color: #994400;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #333;
+            font-size: 14px;
+            color: #444;
+        }
+        .footer .end-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .footer .brand {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Print Styles */
+        @media print {
+            body { background: white; padding: 0; margin: 0; }
+            .wrap { box-shadow: none; padding: 20px 25px; max-width: 100%; }
+            .watermark span { font-size: 56px; }
+            .section-title,
+            .marks-badge,
+            .info-row,
+            .student-info,
+            .instructions {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Watermark -->
+    <div class="watermark">
+        <span>Md Kayes<br>Learn to Enlight</span>
+    </div>
+
+    <div class="wrap">
+        <!-- Header -->
+        <div class="header">
+            <h1>সাপ্তাহিক কুইজ পরীক্ষা</h1>
+            <h1>WEEKLY QUIZ EXAMINATION</h1>
+            <h2>পঞ্চম শ্রেণী (Class 5) — ক্যাডেট কলেজ প্রস্তুতি (Cadet College Preparation)</h2>
+            <div class="subtitle">বিষয়: গণিত (Subject: Mathematics)</div>
+        </div>
+
+        <!-- Info Row -->
+        <div class="info-row">
+            <div><strong>সময় (Time):</strong> ২০ মিনিট (20 Minutes) — জমা দেওয়ার সময়সহ (including submission time)</div>
+            <div><strong>পূর্ণমান (Total Marks):</strong> ২০</div>
+        </div>
+
+        <!-- Student Info -->
+        <div class="student-info">
+            <div>নাম (Name): </div>
+            <div>রোল (Roll): </div>
+            <div>শ্রেণী (Class): পঞ্চম (Five)</div>
+            <div>তারিখ (Date): </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <strong>নির্দেশনা (Instructions):</strong> সকল প্রশ্নের উত্তর আলাদা খাতায় লিখতে হবে। প্রতিটি প্রশ্নের নম্বর স্পষ্টভাবে লিখবে।<br>
+            (Write all answers in a separate notebook. Clearly write the question number for each answer.)
+        </div>
+
+        <hr>
+
+        <!-- ==================== SECTION A: MATHEMATICS ==================== -->
+        <div class="section-title">গণিত (MATHEMATICS) — ২০ নম্বর (20 Marks)</div>
+
+        <!-- Q1: LCM and HCF -->
+        <div class="question">
+            <div class="question-text">
+                ১। মৌলিক উৎপাদক পদ্ধতিতে ল.সা.গু ও গ.সা.গু বের করো:
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Find LCM and HCF using prime factorization method:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> ২৪, ৩৬ এবং ৬০
+                <span class="eng">(24, 36 and 60)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> ৪৮, ৭২ এবং ৯৬
+                <span class="eng">(48, 72 and 96)</span>
+            </div>
+        </div>
+
+        <!-- Q2: Mixed & Improper Fractions -->
+        <div class="question">
+            <div class="question-text">
+                ২। মিশ্র ভগ্নাংশকে অপ্রকৃত ভগ্নাংশে এবং অপ্রকৃত ভগ্নাংশকে মিশ্র ভগ্নাংশে রূপান্তর করো:
+                <span class="marks-badge">২ নম্বর / 2 Marks</span>
+            </div>
+            <div class="question-eng">(Convert mixed to improper and improper to mixed fractions:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [১ নম্বর]</strong> ৫ ২/৯ = .................... (মিশ্র → অপ্রকৃত)
+                <span class="eng">(Mixed → Improper)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [১ নম্বর]</strong> ৪৭/৬ = .................... (অপ্রকৃত → মিশ্র)
+                <span class="eng">(Improper → Mixed)</span>
+            </div>
+        </div>
+
+        <!-- Q3: Multiply & Divide Fractions -->
+        <div class="question">
+            <div class="question-text">
+                ৩। ভগ্নাংশের গুণ ও ভাগ করো:
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Multiply and divide the fractions:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [১ নম্বর]</strong> ৪/৭ × ৫/৮ =
+            </div>
+            <div class="sub-question">
+                <strong>খ) [১ নম্বর]</strong> ৭/৯ ÷ ২/৩ =
+            </div>
+            <div class="sub-question">
+                <strong>গ) [১ নম্বর]</strong> ৩/৫ × ২০ =
+            </div>
+            <div class="sub-question">
+                <strong>ঘ) [১ নম্বর]</strong> ১৮/৭ ÷ ৩ =
+            </div>
+        </div>
+
+        <!-- Q4: Decimal to Common Fraction -->
+        <div class="question">
+            <div class="question-text">
+                ৪। দশমিক ভগ্নাংশকে সাধারণ ভগ্নাংশে প্রকাশ এবং সরলতম আকারে প্রকাশ করো:
+                <span class="marks-badge">৩ নম্বর / 3 Marks</span>
+            </div>
+            <div class="question-eng">(Convert decimal fractions to common fractions in simplest form:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [১ নম্বর]</strong> ০.০৬ =
+            </div>
+            <div class="sub-question">
+                <strong>খ) [১ নম্বর]</strong> ০.৪৫ =
+            </div>
+            <div class="sub-question">
+                <strong>গ) [১ নম্বর]</strong> ০.৮০ =
+            </div>
+        </div>
+
+        <!-- Q5: Fraction to Decimal -->
+        <div class="question">
+            <div class="question-text">
+                ৫। ভগ্নাংশকে দশমিক আকারে প্রকাশ করো:
+                <span class="marks-badge">৩ নম্বর / 3 Marks</span>
+            </div>
+            <div class="question-eng">(Convert fractions to decimal form:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [১ নম্বর]</strong> ৯/১০ =
+            </div>
+            <div class="sub-question">
+                <strong>খ) [১ নম্বর]</strong> ৪৩/১০০ =
+            </div>
+            <div class="sub-question">
+                <strong>গ) [১ নম্বর]</strong> ৫২৭/১০০০ =
+            </div>
+        </div>
+
+        <!-- Q6: Unitary Method -->
+        <div class="question">
+            <div class="question-text">
+                ৬। এককের নিয়মে সমাধান করো (Solve using unitary method):
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> ১২ জন শ্রমিক দৈনিক ৬ ঘণ্টা কাজ করে ১০ দিনে একটি কাজ শেষ করে। ৮ জন শ্রমিক দৈনিক ৯ ঘণ্টা কাজ করলে কত দিনে একই কাজ শেষ করতে পারবে?
+                <span class="eng">(12 workers working 6 hours daily complete a job in 10 days. If 8 workers work 9 hours daily, in how many days can they complete the same job?)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> একটি গাড়ি ৫০ কি.মি./ঘণ্টা বেগে ৬ ঘণ্টায় একটি দূরত্ব অতিক্রম করে। ঐ গাড়িটি যদি ৭৫ কি.মি./ঘণ্টা বেগে চলে, তাহলে একই দূরত্ব অতিক্রম করতে কত সময় লাগবে?
+                <span class="eng">(A car travels a distance in 6 hours at 50 km/h speed. If the same car travels at 75 km/h speed, how much time will it take to cover the same distance?)</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="end-text">প্রশ্নপত্রের সমাপ্তি (End of Question Paper)</div>
+            <div class="brand">
+                <strong>Md Kayes</strong><br>
+                <strong>Learn to Enlight</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
