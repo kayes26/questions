@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 5 Weekly Quiz - Percentage & Structure of Matter</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700;900&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans Bengali', Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      color: #222;
+      line-height: 1.7;
+    }
+    .watermark {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      pointer-events: none;
+      user-select: none;
+    }
+    .watermark span {
+      transform: rotate(-25deg);
+      font-size: 64px;
+      font-weight: 900;
+      color: rgba(0,0,0,.09);
+      text-align: center;
+      line-height: 1.2;
+      letter-spacing: .6px;
+      mix-blend-mode: multiply;
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 34px 40px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.12);
+      border-radius: 3px;
+    }
+    .header {
+      text-align: center;
+      border-bottom: 3px solid #222;
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+    .header h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 3px;
+    }
+    .header h2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #444;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: #f8f9fa;
+      border: 1px solid #ddd;
+      padding: 10px 14px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+    .student-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 20px;
+      border: 1px solid #ccc;
+      padding: 12px 14px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+    .student-info div {
+      border-bottom: 1px dotted #999;
+      padding-bottom: 3px;
+    }
+    .instructions {
+      background: #fff9e6;
+      border: 1px solid #e9cf65;
+      color: #5a4a00;
+      padding: 10px 14px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+    .section-title {
+      background: #222;
+      color: white;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 9px 15px;
+      margin: 22px 0 16px;
+      letter-spacing: .2px;
+    }
+    .question {
+      margin-bottom: 20px;
+      page-break-inside: avoid;
+    }
+    .question-text {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .question-eng {
+      font-size: 12.5px;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .sub-question {
+      padding-left: 28px;
+      margin-bottom: 7px;
+      font-size: 14.5px;
+    }
+    .eng {
+      display: block;
+      color: #666;
+      font-size: 12.5px;
+      font-style: italic;
+      margin-top: 1px;
+    }
+    .marks-badge {
+      float: right;
+      background: #28a745;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 3px;
+      padding: 3px 9px;
+      margin-left: 10px;
+      white-space: nowrap;
+    }
+    .answer-line {
+      display: inline-block;
+      min-width: 90px;
+      border-bottom: 1px dotted #333;
+      height: 18px;
+      vertical-align: baseline;
+    }
+    hr {
+      border: none;
+      border-top: 1.5px solid #ddd;
+      margin: 18px 0;
+    }
+    .footer {
+      text-align: center;
+      border-top: 2px solid #222;
+      margin-top: 28px;
+      padding-top: 14px;
+      font-size: 14px;
+      color: #444;
+    }
+    .footer .brand {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #666;
+    }
+    @media print {
+      body { background: white; padding: 0; }
+      .wrap { box-shadow: none; max-width: 100%; padding: 20px 25px; }
+      .watermark span { font-size: 56px; }
+      .section-title, .marks-badge, .info-row, .student-info, .instructions {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="watermark">
+    <span>Md Kayes<br>Learn to Enlight</span>
+  </div>
+
+  <div class="wrap">
+    <div class="header">
+      <h1>সাপ্তাহিক কুইজ পরীক্ষা</h1>
+      <h1>WEEKLY QUIZ EXAMINATION</h1>
+      <h2>পঞ্চম শ্রেণী (Class 5) — ক্যাডেট কলেজ প্রস্তুতি (Cadet College Preparation)</h2>
+      <div class="subtitle">বিষয়: গণিত ও বিজ্ঞান (Subject: Mathematics & Science)</div>
+    </div>
+
+    <div class="info-row">
+      <div><strong>সময় (Time):</strong> ২০ মিনিট (20 Minutes)</div>
+      <div><strong>পূর্ণমান (Total Marks):</strong> ২০</div>
+      <div><strong>গণিত:</strong> ১৪ নম্বর | <strong>বিজ্ঞান:</strong> ৬ নম্বর</div>
+    </div>
+
+    <div class="student-info">
+      <div>নাম (Name): </div>
+      <div>রোল (Roll): </div>
+      <div>শ্রেণী (Class): পঞ্চম (Five)</div>
+      <div>তারিখ (Date): </div>
+    </div>
+
+    <div class="instructions">
+      <strong>নির্দেশনা (Instructions):</strong> সকল প্রশ্নের উত্তর আলাদা খাতায় লিখতে হবে। প্রতিটি প্রশ্নের নম্বর স্পষ্টভাবে লিখবে। প্রয়োজনীয় হিসাব দেখাতে হবে।<br>
+      (Write all answers in a separate notebook. Clearly write the question number and show necessary working.)
+    </div>
+
+    <hr>
+
+    <div class="section-title">গণিত (MATHEMATICS) — ১৪ নম্বর (14 Marks)</div>
+
+    <div class="question">
+      <div class="question-text">
+        ১। নিচের ভগ্নাংশগুলোকে শতকরায় প্রকাশ করো:
+        <span class="marks-badge">৩ নম্বর / 3 Marks</span>
+      </div>
+      <div class="question-eng">(Express the following fractions as percentages:)</div>
+      <div class="sub-question"><strong>ক) [১ নম্বর]</strong> ২৫/১০০ = <span class="answer-line"></span>%</div>
+      <div class="sub-question"><strong>খ) [১ নম্বর]</strong> ৩/৪ = <span class="answer-line"></span>%</div>
+      <div class="sub-question"><strong>গ) [১ নম্বর]</strong> ৭/২০ = <span class="answer-line"></span>%</div>
+    </div>
+
+    <div class="question">
+      <div class="question-text">
+        ২। নিচের শতকরার মান নির্ণয় করো:
+        <span class="marks-badge">২ নম্বর / 2 Marks</span>
+      </div>
+      <div class="question-eng">(Find the value of the following percentages:)</div>
+      <div class="sub-question"><strong>ক) [১ নম্বর]</strong> ৮০ কেজির ২৫% কত? <span class="eng">(What is 25% of 80 kg?)</span></div>
+      <div class="sub-question"><strong>খ) [১ নম্বর]</strong> ৫০০ টাকার ১২% কত? <span class="eng">(What is 12% of 500 taka?)</span></div>
+    </div>
+
+    <div class="question">
+      <div class="question-text">
+        ৩। একটি বিদ্যালয়ে মোট ৬০০ জন শিক্ষার্থী আছে। তাদের মধ্যে ৪৫% ছাত্রী। ছাত্রী ও ছাত্রের সংখ্যা নির্ণয় করো।
+        <span class="marks-badge">৩ নম্বর / 3 Marks</span>
+      </div>
+      <div class="question-eng">(There are 600 students in a school. 45% of them are girls. Find the number of girls and boys.)</div>
+    </div>
+
+    <div class="question">
+      <div class="question-text">
+        ৪। একটি খেলনার ক্রয়মূল্য ৪৫০ টাকা এবং বিক্রয়মূল্য ৫৪০ টাকা। লাভ এবং লাভের শতকরা হার নির্ণয় করো।
+        <span class="marks-badge">৩ নম্বর / 3 Marks</span>
+      </div>
+      <div class="question-eng">(The cost price of a toy is Tk. 450 and the selling price is Tk. 540. Find the profit and profit percentage.)</div>
+    </div>
+
+    <div class="question">
+      <div class="question-text">
+        ৫। রহিম সাহেব ২০,০০০ টাকা ৬% বার্ষিক মুনাফায় ২ বছরের জন্য ব্যাংকে রাখলেন। মোট মুনাফা ও মেয়াদ শেষে মোট টাকা নির্ণয় করো।
+        <span class="marks-badge">৩ নম্বর / 3 Marks</span>
+      </div>
+      <div class="question-eng">(Mr. Rahim deposited Tk. 20,000 in a bank at 6% annual profit for 2 years. Find the total profit and final amount.)</div>
+    </div>
+
+    <div class="section-title">বিজ্ঞান (SCIENCE) — ৬ নম্বর (6 Marks)</div>
+
+    <div class="question">
+      <div class="question-text">
+        ৬। শূন্যস্থান পূরণ করো:
+        <span class="marks-badge">২ নম্বর / 2 Marks</span>
+      </div>
+      <div class="question-eng">(Fill in the blanks:)</div>
+      <div class="sub-question"><strong>ক) [১ নম্বর]</strong> এক বা একাধিক পরমাণু মিলে <span class="answer-line"></span> তৈরি হয়। <span class="eng">(One or more atoms combine to form a ______.)</span></div>
+      <div class="sub-question"><strong>খ) [১ নম্বর]</strong> পানির সংকেত হলো <span class="answer-line"></span>। <span class="eng">(The chemical formula of water is ______.)</span></div>
+    </div>
+
+    <div class="question">
+      <div class="question-text">
+        ৭। মৌলিক পদার্থ ও যৌগিক পদার্থের মধ্যে দুটি পার্থক্য লেখো।
+        <span class="marks-badge">২ নম্বর / 2 Marks</span>
+      </div>
+      <div class="question-eng">(Write two differences between element and compound.)</div>
+    </div>
+
+    <div class="question">
+      <div class="question-text">
+        ৮। বালু ও লোহার গুঁড়ার মিশ্রণ থেকে লোহার গুঁড়া কীভাবে আলাদা করবে? কারণসহ লেখো।
+        <span class="marks-badge">২ নম্বর / 2 Marks</span>
+      </div>
+      <div class="question-eng">(How will you separate iron filings from a mixture of sand and iron filings? Write with reason.)</div>
+    </div>
+
+    <hr>
+
+    <div class="footer">
+      <div><strong>প্রশ্নপত্রের সমাপ্তি (End of Question Paper)</strong></div>
+      <div class="brand">
+        <strong>Md Kayes</strong><br>
+        <strong>Learn to Enlight</strong>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
