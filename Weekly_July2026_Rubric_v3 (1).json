@@ -1,0 +1,135 @@
+{
+  "exam_name": "Weekly Exam - July 2026 - Mathematics",
+  "exam_type": "Weekly",
+  "class": "Class 6 (Cadet College Prep)",
+  "subject_combination": ["Mathematics"],
+  "subject_split_note": "GK section skipped for this exam by explicit user override; standard project default is Math 80% / GK 20%.",
+  "total_marks": 20,
+  "time_minutes": 20,
+  "sections": [
+    {
+      "section_name": "Mathematics",
+      "subject": "Mathematics",
+      "full_mark": 20,
+      "questions": [
+        {
+          "question_id": "Q1a",
+          "question_text": "Relationship between LCM and HCF",
+          "full_mark": 1,
+          "required_method": null,
+          "required_form": null,
+          "correct_answer": "LCM x HCF = Product of the two numbers",
+          "accepted_equivalent_answers": ["LCM x GCD = product of two numbers", "Product of two numbers = LCM x HCF"],
+          "marking_rules": [
+            {"mark": 1, "condition": "States correct relationship (order of terms irrelevant)"},
+            {"mark": 0, "condition": "Incorrect or missing relationship"}
+          ],
+          "partial_marking_notes": "No partial marks; 1 mark item, all or nothing."
+        },
+        {
+          "question_id": "Q1b",
+          "question_text": "Find other number given HCF=6, LCM=90, one number=18",
+          "full_mark": 2,
+          "required_method": null,
+          "required_form": null,
+          "correct_answer": "30",
+          "accepted_equivalent_answers": [],
+          "marking_rules": [
+            {"mark": 2, "condition": "Correct final answer 30, with valid working shown (formula method, or any other correct approach such as prime factorization/trial)"},
+            {"mark": 1, "condition": "Reasonable working/attempt shown but arithmetic error leading to wrong final answer, OR correct answer 30 with no working shown"},
+            {"mark": 0, "condition": "Wrong method and wrong answer, or no attempt"}
+          ],
+          "partial_marking_notes": "No specific method is required for this question; any mathematically valid approach that shows working can earn full marks."
+        },
+        {
+          "question_id": "Q2",
+          "question_text": "Smallest number +9 divisible by 12,18,24",
+          "full_mark": 4,
+          "required_method": "LCM method (prime factorization or division method) with working shown",
+          "required_form": null,
+          "correct_answer": "63",
+          "accepted_equivalent_answers": [],
+          "marking_rules": [
+            {"mark": 4, "condition": "Correct LCM (72) found via shown method, correct subtraction of 9, final answer 63"},
+            {"mark": 2, "condition": "Correct LCM (72) found but final answer wrong or missing"},
+            {"mark": 1, "condition": "Correct final answer 63 but no LCM method/working shown"},
+            {"mark": 0, "condition": "Incorrect LCM and incorrect answer, or no attempt"}
+          ],
+          "partial_marking_notes": "Full marks require LCM method explicitly shown; final answer alone without method is capped at 1 mark."
+        },
+        {
+          "question_id": "Q3",
+          "question_text": "Bowling average - runs needed in last 4 overs",
+          "full_mark": 4,
+          "required_method": "Total runs = average x overs, for both parts",
+          "required_form": null,
+          "correct_answer": "15",
+          "accepted_equivalent_answers": ["15 runs"],
+          "marking_rules": [
+            {"mark": 4, "condition": "Correct working: first 6 overs total=30, required total=45, answer=15"},
+            {"mark": 2, "condition": "Correct method with one arithmetic slip (e.g. wrong total but right approach)"},
+            {"mark": 1, "condition": "Correct final answer 15 but no working shown"},
+            {"mark": 0, "condition": "Wrong method and wrong answer"}
+          ],
+          "partial_marking_notes": "Working is required since this is a 4-mark question; answer-only gets minimal credit."
+        },
+        {
+          "question_id": "Q4",
+          "question_text": "Property distribution - son vs daughter difference",
+          "full_mark": 4,
+          "required_method": "Find total property from remaining fraction, then compute shares",
+          "required_form": null,
+          "correct_answer": "30000",
+          "accepted_equivalent_answers": ["Tk. 30,000", "30,000 Taka", "BDT 30000"],
+          "marking_rules": [
+            {"mark": 4, "condition": "Correct total (360000) derived, correct son/daughter shares, correct final difference 30000"},
+            {"mark": 2, "condition": "Correct total property found (360000) but error in final difference"},
+            {"mark": 1, "condition": "Correct final answer 30000 but no working shown"},
+            {"mark": 0, "condition": "Incorrect method and incorrect answer"}
+          ],
+          "partial_marking_notes": "Full method (finding total property first) required for full marks; skipping steps for a 4-mark question limits credit."
+        },
+        {
+          "question_id": "Q5",
+          "question_text": "Simplify nested fraction BODMAS expression",
+          "full_mark": 3,
+          "required_method": "Step-by-step simplification following order of operations (innermost brackets first)",
+          "required_form": "simplest form",
+          "correct_answer": "2497/320",
+          "accepted_equivalent_answers": ["7 257/320"],
+          "marking_rules": [
+            {"mark": 3, "condition": "All steps correct, final answer in simplest form (2497/320 or 7 257/320)"},
+            {"mark": 2, "condition": "Correct method/steps with one small arithmetic mistake in final value"},
+            {"mark": 1, "condition": "Only final answer given with no working shown, even if correct"},
+            {"mark": 0, "condition": "Incorrect method or unsimplified/wrong final answer with no valid working"}
+          ],
+          "partial_marking_notes": "Answer must be in simplest form (required_form). If left as an unsimplified fraction (e.g. 7491/960), deduct 1 mark even if numerically correct."
+        },
+        {
+          "question_id": "Q6",
+          "question_text": "Bamboo pole full length from decimal fraction",
+          "full_mark": 2,
+          "required_method": null,
+          "required_form": null,
+          "correct_answer": "20",
+          "accepted_equivalent_answers": ["20 metres", "20 m"],
+          "marking_rules": [
+            {"mark": 2, "condition": "Correct fraction above water (0.25) found and correct final length 20"},
+            {"mark": 1, "condition": "Correct final answer 20 but no working shown, OR correct method with minor arithmetic slip"},
+            {"mark": 0, "condition": "Wrong method and wrong answer"}
+          ],
+          "partial_marking_notes": "Low mark-value question; minimal working expected, but answer must be numerically correct with correct unit understood."
+        }
+      ]
+    }
+  ],
+  "global_marking_rules": [
+    "Check only the student's uploaded script against this rubric.",
+    "Do not guess unclear handwriting. If unclear, mark that item as needs_human_review.",
+    "Accept equivalent mathematical forms unless the question explicitly asks for simplest form.",
+    "If a question requires a specific method, do not give full marks for another method even if the final answer is correct.",
+    "If the final answer is correct but no working/method is shown for more than 1 mark question, give limited marks according to each question rule.",
+    "If method is correct but there is a small arithmetic mistake, give partial marks.",
+    "Do not give marks above the maximum mark for any question."
+  ]
+}
