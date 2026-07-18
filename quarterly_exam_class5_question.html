@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 5 - Quarterly Examination | Learn with Kayes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.8;
+            color: #222;
+        }
+
+        .watermark {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+        }
+        .watermark span {
+            transform: rotate(-25deg);
+            font-size: 60px;
+            font-weight: 900;
+            color: rgba(0,0,0,.10);
+            letter-spacing: .6px;
+            mix-blend-mode: multiply;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            border-radius: 2px;
+        }
+
+        .header { text-align: center; border-bottom: 3px solid #333; padding-bottom: 18px; margin-bottom: 20px; }
+        .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; color: #111; }
+        .header h2 { font-size: 18px; font-weight: 600; color: #555; margin-bottom: 2px; }
+        .header .subtitle { font-size: 14px; color: #777; margin-top: 4px; }
+
+        .info-row {
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+            padding: 10px 15px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 4px;
+            margin-bottom: 15px; font-size: 14px;
+        }
+
+        .student-info {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px;
+            padding: 12px 15px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 20px; font-size: 14px;
+        }
+        .student-info div { border-bottom: 1px dotted #aaa; padding-bottom: 4px; }
+
+        .section-title {
+            font-size: 15px; font-weight: 700; background: #333; color: white;
+            padding: 9px 16px; margin: 25px 0 18px 0; letter-spacing: 0.3px;
+        }
+
+        .question { margin-bottom: 20px; }
+        .question-text { font-weight: 700; font-size: 15px; margin-bottom: 3px; line-height: 1.7; }
+        .question-eng { font-size: 13px; color: #555; margin-bottom: 10px; font-style: italic; }
+
+        .sub-question { padding-left: 28px; margin-bottom: 8px; font-size: 14.5px; line-height: 1.7; }
+        .sub-question .eng { font-size: 12.5px; color: #666; display: block; font-style: italic; }
+
+        .marks-badge {
+            float: right; background: #28a745; color: white; padding: 3px 10px; border-radius: 3px;
+            font-size: 12px; font-weight: 600; margin-left: 10px; white-space: nowrap;
+        }
+
+        hr { border: none; border-top: 1.5px solid #ddd; margin: 20px 0; }
+
+        .instructions {
+            background: #fff9e6; border: 1px solid #f0d060; border-radius: 4px; padding: 10px 15px;
+            margin-bottom: 20px; font-size: 13px; color: #665500;
+        }
+        .instructions strong { color: #994400; }
+
+        .footer { text-align: center; margin-top: 30px; padding-top: 15px; border-top: 2px solid #333; font-size: 14px; color: #444; }
+        .footer .end-text { font-weight: 600; margin-bottom: 10px; }
+        .footer .brand { margin-top: 8px; font-size: 13px; color: #666; }
+
+        @media print {
+            body { background: white; padding: 0; margin: 0; }
+            .wrap { box-shadow: none; padding: 20px 25px; max-width: 100%; }
+            .watermark span { font-size: 52px; }
+            .section-title, .marks-badge, .info-row, .student-info, .instructions {
+                -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            }
+            .question { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark"><span>Learn with Kayes</span></div>
+
+    <div class="wrap">
+        <div class="header">
+            <h1>ত্রৈমাসিক পরীক্ষা</h1>
+            <h1>QUARTERLY EXAMINATION</h1>
+            <h2>পঞ্চম শ্রেণী (Class 5) — ক্যাডেট কলেজ প্রস্তুতি (Cadet College Preparation)</h2>
+            <div class="subtitle">জুন ২০২৬ (June 2026)</div>
+        </div>
+
+        <div class="info-row">
+            <div><strong>সময় (Time):</strong> ৬০ মিনিট (60 Minutes) — জমা দেওয়ার সময়সহ (including submission time)</div>
+            <div><strong>পূর্ণমান (Total Marks):</strong> ৬০</div>
+        </div>
+
+        <div class="student-info">
+            <div>নাম (Name): </div>
+            <div>রোল (Roll): </div>
+            <div>শ্রেণী (Class): পঞ্চম (Five)</div>
+            <div>তারিখ (Date): </div>
+        </div>
+
+        <div class="instructions">
+            <strong>নির্দেশনা (Instructions):</strong> সকল প্রশ্নের উত্তর আলাদা খাতায় লিখতে হবে। গাণিতিক প্রশ্নের ক্ষেত্রে সমাধানের ধাপ স্পষ্টভাবে দেখাতে হবে, শুধু চূড়ান্ত উত্তরের জন্য পূর্ণ নম্বর দেওয়া হবে না।<br>
+            (Write all answers in a separate notebook. For mathematics questions, working steps must be shown clearly — full marks will not be given for only the final answer.)
+        </div>
+
+        <hr>
+
+        <!-- ==================== SECTION A: MATHEMATICS (36 MARKS) ==================== -->
+        <div class="section-title">বিভাগ ক: গণিত (SECTION A: MATHEMATICS) — ৩৬ নম্বর (36 Marks)</div>
+
+        <!-- Q1 -->
+        <div class="question">
+            <div class="question-text">
+                ১। ৬ অংকের ক্ষুদ্রতম সংখ্যাটি নির্ণয় কর যাকে ১৮, ২৪, ৩২ এবং ৪০ দ্বারা ভাগ করলে প্রতিবার ভাগশেষ ১৪ থাকে। (মৌলিক উৎপাদক পদ্ধতিতে ল.সা.গু নির্ণয় করে সমাধান করতে হবে।)
+                <span class="marks-badge">৫ নম্বর / 5 Marks</span>
+            </div>
+            <div class="question-eng">(Find the smallest 6-digit number which, when divided by 18, 24, 32 and 40, leaves a remainder of 14 each time. Use the prime factorization method to find the LCM.)</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question">
+            <div class="question-text">
+                ২। একটি স্কুলে ৯১ জন ছেলে এবং ১০৫ জন মেয়ে আছে। তাদেরকে সমান সংখ্যক দলে ভাগ করতে হবে যাতে প্রতিটি দলে ছেলে ও মেয়ের সংখ্যা সমান থাকে।
+                <span class="marks-badge">৫ নম্বর / 5 Marks</span>
+            </div>
+            <div class="question-eng">(A school has 91 boys and 105 girls. They need to be divided into equal groups so that each group has the same number of boys and the same number of girls.)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> গ.সা.গু নির্ণয় করে সর্বাধিক কতটি দল তৈরি করা যাবে তা বের কর।
+                <span class="eng">(Find the HCF and determine the maximum number of groups that can be formed.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> প্রতিটি দলে মোট কতজন শিক্ষার্থী থাকবে?
+                <span class="eng">(How many total students will be in each group?)</span>
+            </div>
+            <div class="sub-question">
+                <strong>গ) [১ নম্বর]</strong> প্রতি দলে কতজন ছেলে এবং কতজন মেয়ে থাকবে?
+                <span class="eng">(How many boys and how many girls will be in each group?)</span>
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question">
+            <div class="question-text">
+                ৩। একটি রাস্তার শুরুতে একসাথে একটি গাছ এবং একটি ল্যাম্পপোস্ট আছে। গাছ ২১ মিটার পরপর এবং ল্যাম্পপোস্ট ২৮ মিটার পরপর বসানো আছে। রাস্তার দৈর্ঘ্য ৮৪০ মিটার।
+                <span class="marks-badge">৫ নম্বর / 5 Marks</span>
+            </div>
+            <div class="question-eng">(At the start of a road, there is a tree and a lamppost together. Trees are placed every 21 meters and lampposts every 28 meters. The road is 840 meters long.)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> কত মিটার পরপর গাছ ও ল্যাম্পপোস্ট আবার একসাথে থাকবে?
+                <span class="eng">(After how many meters will a tree and lamppost be together again?)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [৩ নম্বর]</strong> রাস্তার শুরু থেকে শেষ পর্যন্ত (শুরুর স্থানসহ) মোট কতবার গাছ ও ল্যাম্পপোস্ট একসাথে থাকবে?
+                <span class="eng">(From the start to the end of the road — including the starting point — how many times will a tree and lamppost be together in total?)</span>
+            </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question">
+            <div class="question-text">
+                ৪। দুই ভাইয়ের মাসিক আয়ের অনুপাত ৫ : ৭। তাদের মাসিক খরচের অনুপাত ৩ : ৫। প্রত্যেকে মাসে ২,০০০ টাকা করে সঞ্চয় করে।
+                <span class="marks-badge">৬ নম্বর / 6 Marks</span>
+            </div>
+            <div class="question-eng">(The ratio of the monthly incomes of two brothers is 5 : 7. The ratio of their monthly expenditures is 3 : 5. Each of them saves Tk. 2,000 per month.)</div>
+
+            <div class="sub-question">
+                <strong>ক) [৪ নম্বর]</strong> সমীকরণ তৈরি করে প্রত্যেক ভাইয়ের মাসিক আয় নির্ণয় কর।
+                <span class="eng">(Form equations and find the monthly income of each brother.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> প্রত্যেক ভাইয়ের মাসিক খরচ কত?
+                <span class="eng">(What is the monthly expenditure of each brother?)</span>
+            </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question">
+            <div class="question-text">
+                ৫। একটি সংখ্যাকে ১৪, ১৮, ২১ এবং ২৪ দ্বারা ভাগ করলে প্রতিবার ভাগশেষ ৯ থাকে। সংখ্যাটি ৫০০০ থেকে ৬০০০ এর মধ্যে হলে সংখ্যাটি কত?
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(A number when divided by 14, 18, 21 and 24 leaves a remainder of 9 each time. The number is between 5000 and 6000. Find the number.)</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question">
+            <div class="question-text">
+                ৬। একটি সামান্তরিক আকৃতির মাঠের ভূমি ২৪ মিটার এবং লম্ব উচ্চতা ১৫ মিটার। এর সংলগ্ন বাহুর দৈর্ঘ্য ১৮ মিটার। মাঠটির চারপাশে প্রতি মিটারে ১৫০ টাকা খরচে বেড়া দেওয়া হবে।
+                <span class="marks-badge">৬ নম্বর / 6 Marks</span>
+            </div>
+            <div class="question-eng">(A parallelogram-shaped field has a base of 24 meters and a perpendicular height of 15 meters. The length of its adjacent side is 18 meters. A fence is to be built around the field at a cost of Tk. 150 per meter.)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> মাঠটির ক্ষেত্রফল নির্ণয় কর।
+                <span class="eng">(Find the area of the field.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> মাঠটির পরিসীমা নির্ণয় কর।
+                <span class="eng">(Find the perimeter of the field.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>গ) [২ নম্বর]</strong> মাঠের চারপাশে বেড়া দিতে মোট কত টাকা খরচ হবে?
+                <span class="eng">(What will be the total cost of fencing around the field?)</span>
+            </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question">
+            <div class="question-text">
+                ৭। একটি ট্রাপিজিয়াম আকৃতির জমির দুটি সমান্তরাল বাহু ২৮ মিটার ও ১৬ মিটার। এর লম্ব উচ্চতা ১৪ মিটার এবং দুটি অসমান্তরাল বাহু যথাক্রমে ১৫ মিটার ও ১৭ মিটার। জমিটি প্রতি বর্গমিটারে ৮০ টাকা খরচে সমতল করা হবে।
+                <span class="marks-badge">৫ নম্বর / 5 Marks</span>
+            </div>
+            <div class="question-eng">(A trapezium-shaped plot has two parallel sides of 28 m and 16 m. Its perpendicular height is 14 m and its two non-parallel sides are 15 m and 17 m respectively. The plot is to be levelled at a cost of Tk. 80 per square meter.)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> জমিটির ক্ষেত্রফল নির্ণয় কর।
+                <span class="eng">(Find the area of the plot.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> জমিটির পরিসীমা নির্ণয় কর।
+                <span class="eng">(Find the perimeter of the plot.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>গ) [১ নম্বর]</strong> জমিটি সমতল করতে মোট কত টাকা খরচ হবে?
+                <span class="eng">(What will be the total cost to level the plot?)</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- ==================== SECTION B: SCIENCE (12 MARKS) ==================== -->
+        <div class="section-title">বিভাগ খ: বিজ্ঞান (SECTION B: SCIENCE) — ১২ নম্বর (12 Marks)</div>
+
+        <div class="question">
+            <div class="question-text">
+                ৮। মরুভূমির প্রাণীদের বাসস্থান ও অভিযোজন সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <span class="marks-badge">৬ নম্বর / 6 Marks</span>
+            </div>
+            <div class="question-eng">(Answer the following questions about the habitat and adaptation of desert animals:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> আবাসস্থল কাকে বলে? মরুভূমি ও জলজ আবাসস্থানের মধ্যে দুটি পার্থক্য লেখো।
+                <span class="eng">(What is a habitat? Write two differences between desert and aquatic habitats.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> অভিযোজন কী? উটের দেহে দেখা যায় এমন যেকোনো দুটি অভিযোজন উদাহরণসহ ব্যাখ্যা কর।
+                <span class="eng">(What is adaptation? Explain any two adaptations seen in a camel's body, with examples.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>গ) [২ নম্বর]</strong> মাছ পানিতে কীভাবে শ্বাস-প্রশ্বাস নেয়? ফুলকার ভূমিকা ব্যাখ্যা কর।
+                <span class="eng">(How do fish breathe in water? Explain the role of gills.)</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">
+                ৯। সালোকসংশ্লেষণ ও শ্বসন সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <span class="marks-badge">৬ নম্বর / 6 Marks</span>
+            </div>
+            <div class="question-eng">(Answer the following questions about photosynthesis and respiration:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> উদ্ভিদ দিনের বেলা এবং রাতের বেলা কোন প্রক্রিয়া চালায়? অক্সিজেন ও কার্বন ডাইঅক্সাইড কখন তৈরি হয় এবং কখন গ্রহণ করে?
+                <span class="eng">(Which processes do plants carry out during day and night? When do they produce and take in oxygen & carbon dioxide?)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> সালোকসংশ্লেষণ প্রক্রিয়ায় উদ্ভিদের কোন কোন উপাদান প্রয়োজন হয়? প্রতিটির উৎস উল্লেখ কর।
+                <span class="eng">(What ingredients does a plant need for the process of photosynthesis? Mention the source of each.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>গ) [২ নম্বর]</strong> পরিবেশে অক্সিজেন-কার্বন ডাইঅক্সাইডের ভারসাম্য রক্ষা করা কেন গুরুত্বপূর্ণ? দুইটি কারণ লেখ।
+                <span class="eng">(Why is it important to maintain the oxygen-carbon dioxide balance in the environment? Write two reasons.)</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- ==================== SECTION C: GENERAL KNOWLEDGE (12 MARKS) ==================== -->
+        <div class="section-title">বিভাগ গ: সাধারণ জ্ঞান (SECTION C: GENERAL KNOWLEDGE) — ১২ নম্বর (12 Marks)</div>
+
+        <div class="question">
+            <div class="question-text">
+                ১০। ভাষা আন্দোলন ১৯৫২ সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Answer the following questions about the Language Movement of 1952:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> ২১ ফেব্রুয়ারি, ১৯৫২ তারিখে কী ঘটেছিল? পাকিস্তান সরকার কোন ধারা জারি করেছিল এবং ছাত্ররা কী করেছিল?
+                <span class="eng">(What happened on 21 February 1952? Which section did the Pakistan government impose, and what did the students do?)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> বাংলা ভাষা আন্দোলনের স্বীকৃতিস্বরূপ ২১ ফেব্রুয়ারিকে আন্তর্জাতিক পর্যায়ে কী দিবস হিসেবে ঘোষণা করা হয় এবং কোন সংস্থা এই স্বীকৃতি দেয়?
+                <span class="eng">(In recognition of the Bangla Language Movement, what international day was 21 February declared as, and which organization gave this recognition?)</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">
+                ১১। যুক্তফ্রন্ট ও ছয় দফা আন্দোলন সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Answer the following questions about the United Front and the Six-Point Movement:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> যুক্তফ্রন্ট কত সালে গঠিত হয় এবং ১৯৫৪ সালের নির্বাচনে এর ফলাফল কী ছিল?
+                <span class="eng">(In which year was the United Front formed, and what was its result in the 1954 election?)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> ছয় দফা কোথায় ও কবে উত্থাপন করা হয়? ছয় দফাকে বাঙালি জাতির কী বলা হয়?
+                <span class="eng">(Where and when was the Six-Point programme presented? What is the Six-Point programme called for the Bengali nation?)</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">
+                ১২। মুজিবনগর সরকার ও মুক্তিযুদ্ধ সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Answer the following questions about the Mujibnagar Government and the Liberation War:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> মুজিবনগর সরকার কবে ও কোথায় শপথ নেয়? এর রাষ্ট্রপতি এবং প্রধানমন্ত্রী কে ছিলেন?
+                <span class="eng">(When and where did the Mujibnagar Government take oath? Who were its President and Prime Minister?)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> মুক্তিযুদ্ধ পরিচালনার জন্য বাংলাদেশকে কতটি সেক্টরে ভাগ করা হয়েছিল এবং সশস্ত্র বাহিনীর সর্বাধিনায়ক কে ছিলেন?
+                <span class="eng">(How many sectors was Bangladesh divided into to conduct the Liberation War, and who was the Commander-in-Chief of the armed forces?)</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="footer">
+            <div class="end-text">প্রশ্নপত্রের সমাপ্তি (End of Question Paper)</div>
+            <div class="brand">
+                <strong>Learn with Kayes</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
