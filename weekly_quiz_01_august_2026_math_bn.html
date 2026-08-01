@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>সাপ্তাহিক কুইজ ০১ — আগস্ট ২০২৬ — গণিত</title>
+<style>
+  :root {
+    --navy: #233b6e;
+    --blue: #315da8;
+    --light-blue: #eef4ff;
+    --green: #167447;
+    --light-green: #edf8f1;
+    --text: #1d2433;
+    --muted: #596275;
+    --line: #d9dfeb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Noto Sans Bengali", "Hind Siliguri", "SolaimanLipi", "Segoe UI", Arial, sans-serif;
+    max-width: 900px;
+    margin: 24px auto;
+    padding: 28px 42px;
+    color: var(--text);
+    line-height: 1.65;
+    background: #fff;
+    position: relative;
+  }
+  .watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-28deg);
+    font-size: 58px;
+    color: rgba(35, 59, 110, 0.055);
+    font-weight: 800;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+  }
+  main, header, footer { position: relative; z-index: 1; }
+  h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 27px;
+    color: var(--navy);
+  }
+  .subheader {
+    margin-top: 5px;
+    text-align: center;
+    color: #333b4d;
+    font-size: 14.5px;
+  }
+  .candidate {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr;
+    gap: 18px;
+    margin: 22px 0 15px;
+    font-size: 14px;
+  }
+  .blank {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #667085;
+    min-height: 19px;
+  }
+  .instructions {
+    margin: 12px 0 18px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    background: #fafbfe;
+    font-size: 14px;
+  }
+  .section-title {
+    margin: 18px 0;
+    padding: 9px 14px;
+    background: var(--light-blue);
+    border-left: 5px solid var(--blue);
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .question {
+    margin: 0 0 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e8ef;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .qline {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: baseline;
+  }
+  .qnum, .marks { font-weight: 750; }
+  .qtext { margin-top: 5px; }
+  .math-line {
+    font-family: "Cambria Math", "Noto Sans Bengali", "Times New Roman", serif;
+    font-size: 17px;
+  }
+  .diagram-wrap {
+    margin: 14px auto 4px;
+    max-width: 470px;
+    text-align: center;
+  }
+  .diagram-caption {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  footer {
+    margin-top: 32px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: #7a8292;
+    font-size: 12px;
+  }
+  .solution-title {
+    background: var(--light-green);
+    border-left-color: var(--green);
+    color: #115a38;
+  }
+  .step {
+    margin: 5px 0 5px 20px;
+  }
+  .final {
+    margin: 8px 0 0 20px;
+    color: var(--green);
+    font-weight: 800;
+  }
+  .rubric-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 24px;
+    font-size: 13.5px;
+  }
+  .rubric-table th,
+  .rubric-table td {
+    border: 1px solid #cfd6e3;
+    padding: 9px 10px;
+    vertical-align: top;
+    text-align: left;
+  }
+  .rubric-table th {
+    background: var(--light-blue);
+    color: var(--navy);
+  }
+  .note {
+    padding: 10px 13px;
+    background: #fff9e9;
+    border-left: 4px solid #d79b18;
+    margin: 12px 0;
+    font-size: 13.5px;
+  }
+  ul.compact { margin-top: 6px; }
+  ul.compact li { margin: 4px 0; }
+  @media print {
+    body {
+      margin: 0;
+      max-width: none;
+      padding: 18mm 16mm;
+    }
+    .question { break-inside: avoid; page-break-inside: avoid; }
+    .watermark { position: fixed; }
+  }
+</style>
+</head>
+<body>
+<div class="watermark">Learn with Kayes</div>
+
+<header>
+  <h1>সাপ্তাহিক কুইজ ০১ — আগস্ট ২০২৬</h1>
+  <div class="subheader">ষষ্ঠ শ্রেণি (ক্যাডেট কলেজ প্রস্তুতি) | বিষয়: গণিত | পূর্ণমান: ২০ | সময়: ২৫ মিনিট</div>
+
+  <div class="candidate">
+    <div>নাম: <span class="blank"></span></div>
+    <div>রোল: <span class="blank"></span></div>
+    <div>তারিখ: <span class="blank"></span></div>
+  </div>
+
+  <div class="instructions">
+    সব প্রশ্নের উত্তর দাও। প্রয়োজনীয় হিসাব দেখাও। যেখানে প্রযোজ্য, চূড়ান্ত উত্তরের সঙ্গে সঠিক একক লিখবে।
+  </div>
+</header>
+
+<main>
+  <div class="section-title">গণিত — পূর্ণমান: ২০</div>
+
+  <section class="question">
+    <div class="qline"><span class="qnum">প্রশ্ন ১।</span><span class="marks">[৪]</span></div>
+    <div class="qtext">
+      একজন ফল বিক্রেতা প্রতি ডজন ২৪০ টাকা দরে ২৫ ডজন কমলা কিনলেন। পরিবহনের সময় ৩৬টি কমলা নষ্ট হয়ে গেল।
+      অবশিষ্ট সব কমলা তিনি প্রতি ডজন ৩০০ টাকা দরে বিক্রি করলেন। তাঁর শতকরা লাভ বা ক্ষতি নির্ণয় করো।
+    </div>
+  </section>
+
+  <section class="question">
+    <div class="qline"><span class="qnum">প্রশ্ন ২।</span><span class="marks">[৩]</span></div>
+    <div class="qtext">
+      ৬ বছর আগে মায়ের বয়স ছিল ছেলের বয়সের ৪ গুণ। বর্তমানে তাদের বয়সের পার্থক্য ২৭ বছর।
+      তাদের বর্তমান বয়স নির্ণয় করো।
+    </div>
+  </section>
+
+  <section class="question">
+    <div class="qline"><span class="qnum">প্রশ্ন ৩।</span><span class="marks">[৩]</span></div>
+    <div class="qtext">
+      একটি পরিবার প্রতি মাসে ৩ লিটার ৮৭৫ মিলিলিটার রান্নার তেল ব্যবহার করে।
+      এক বছরে তারা মোট কত লিটার কত মিলিলিটার তেল ব্যবহার করে তা নির্ণয় করো।
+      ওই পরিমাণ তেল রাখার জন্য ন্যূনতম কতটি ৫ লিটারের পাত্র প্রয়োজন হবে?
+    </div>
+  </section>
+
+  <section class="question">
+    <div class="qline"><span class="qnum">প্রশ্ন ৪।</span><span class="marks">[৩]</span></div>
+    <div class="qtext">
+      মিনা প্রতি মিনিটে ৩৬ মিটার এবং মিহির প্রতি মিনিটে ৫৪ মিটার পথ হাঁটে।
+      তারা প্রত্যেকে ২.৭ কিলোমিটার পথ অতিক্রম করে। মিহির কত মিনিট আগে পথ শেষ করবে?
+    </div>
+  </section>
+
+  <section class="question">
+    <div class="qline"><span class="qnum">প্রশ্ন ৫।</span><span class="marks">[৪]</span></div>
+    <div class="qtext">
+      চিত্রে ১২ মিটার দৈর্ঘ্য ও ৯ মিটার প্রস্থের একটি আয়তক্ষেত্র থেকে ৫ মিটার দৈর্ঘ্য ও ৪ মিটার প্রস্থের
+      একটি আয়তাকার অংশ কেটে নেওয়ার পর একটি L-আকৃতির মেঝে তৈরি হয়েছে। L-আকৃতির মেঝেটির ক্ষেত্রফল নির্ণয় করো।
+    </div>
+    
+<div class="diagram-wrap">
+<svg viewBox="0 0 520 330" role="img" aria-label="এল-আকৃতির মেঝে; বাইরের দৈর্ঘ্য ১২ মিটার, প্রস্থ ৯ মিটার এবং কাটা অংশ ৫ মিটার বাই ৪ মিটার" style="width:100%;height:auto;">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
+      <path d="M0,0 L8,4 L0,8 z" fill="#44506a"></path>
+    </marker>
+  </defs>
+
+  <path d="M95 55 H300 V165 H445 V285 H95 Z"
+        fill="#dce9ff" stroke="#233b6e" stroke-width="4"></path>
+
+  <line x1="95" y1="310" x2="445" y2="310" stroke="#44506a" stroke-width="2"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"></line>
+  <text x="270" y="326" text-anchor="middle" font-size="18" fill="#1d2433"
+        font-family="Noto Sans Bengali, Hind Siliguri, Arial">১২ মি</text>
+
+  <line x1="65" y1="55" x2="65" y2="285" stroke="#44506a" stroke-width="2"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"></line>
+  <text x="35" y="175" text-anchor="middle" font-size="18" fill="#1d2433"
+        font-family="Noto Sans Bengali, Hind Siliguri, Arial"
+        transform="rotate(-90 35 175)">৯ মি</text>
+
+  <line x1="305" y1="35" x2="440" y2="35" stroke="#44506a" stroke-width="2"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"></line>
+  <text x="372" y="25" text-anchor="middle" font-size="18" fill="#1d2433"
+        font-family="Noto Sans Bengali, Hind Siliguri, Arial">৫ মি</text>
+
+  <line x1="470" y1="55" x2="470" y2="165" stroke="#44506a" stroke-width="2"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"></line>
+  <text x="495" y="112" text-anchor="middle" font-size="18" fill="#1d2433"
+        font-family="Noto Sans Bengali, Hind Siliguri, Arial"
+        transform="rotate(-90 495 112)">৪ মি</text>
+
+  <path d="M300 55 H445 V165 H300 Z" fill="#fff" stroke="#8fa0bd" stroke-dasharray="6 5" stroke-width="2"></path>
+</svg>
+<div class="diagram-caption">চিত্রটি সঠিক অনুপাতে আঁকা নয়।</div>
+</div>
+
+  </section>
+
+  <section class="question">
+    <div class="qline"><span class="qnum">প্রশ্ন ৬।</span><span class="marks">[৩]</span></div>
+    <div class="qtext">
+      ৮ জন শিক্ষার্থীর গড় ওজন ৪৭.৫ কেজি। তাদের সঙ্গে আরও একজন শিক্ষার্থী যোগ দিলে ৯ জনের গড় ওজন হয় ৪৮.২ কেজি।
+      নতুন শিক্ষার্থীর ওজন নির্ণয় করো।
+    </div>
+  </section>
+</main>
+
+<footer>Learn with Kayes — সাপ্তাহিক কুইজ ০১, আগস্ট ২০২৬</footer>
+</body>
+</html>
