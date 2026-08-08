@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 5 - Weekly Quiz | সময়ের রূপান্তর ও ভূমিরূপ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.8;
+            color: #222;
+        }
+
+        .watermark {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+        }
+        .watermark span {
+            transform: rotate(-25deg);
+            font-size: 64px;
+            font-weight: 900;
+            color: rgba(0,0,0,.10);
+            letter-spacing: .6px;
+            mix-blend-mode: multiply;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            border-radius: 2px;
+        }
+
+        .header { text-align: center; border-bottom: 3px solid #333; padding-bottom: 18px; margin-bottom: 20px; }
+        .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; color: #111; }
+        .header h2 { font-size: 18px; font-weight: 600; color: #555; margin-bottom: 2px; }
+        .header .subtitle { font-size: 14px; color: #777; margin-top: 4px; }
+
+        .info-row {
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+            padding: 10px 15px; background: #f8f9fa; border: 1px solid #e0e0e0;
+            border-radius: 4px; margin-bottom: 15px; font-size: 14px;
+        }
+
+        .student-info {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px;
+            padding: 12px 15px; border: 1px solid #ccc; border-radius: 4px;
+            margin-bottom: 20px; font-size: 14px;
+        }
+        .student-info div { border-bottom: 1px dotted #aaa; padding-bottom: 4px; }
+
+        .section-title {
+            font-size: 15px; font-weight: 700; background: #333; color: white;
+            padding: 9px 16px; margin: 25px 0 18px 0; letter-spacing: 0.3px;
+        }
+
+        .question { margin-bottom: 22px; }
+        .question-text { font-weight: 700; font-size: 15px; margin-bottom: 3px; line-height: 1.7; }
+        .question-eng { font-size: 13px; color: #555; margin-bottom: 10px; font-style: italic; }
+
+        .sub-question { padding-left: 30px; margin-bottom: 8px; font-size: 14.5px; line-height: 1.7; }
+        .sub-question .eng { font-size: 12.5px; color: #666; display: block; font-style: italic; }
+
+        .marks-badge {
+            float: right; background: #28a745; color: white; padding: 3px 10px;
+            border-radius: 3px; font-size: 12px; font-weight: 600; margin-left: 10px; white-space: nowrap;
+        }
+        .marks-badge.sci { background: #7c3aed; }
+
+        hr { border: none; border-top: 1.5px solid #ddd; margin: 20px 0; }
+
+        .instructions {
+            background: #fff9e6; border: 1px solid #f0d060; border-radius: 4px;
+            padding: 10px 15px; margin-bottom: 20px; font-size: 13px; color: #665500;
+        }
+        .instructions strong { color: #994400; }
+
+        .assume-box {
+            background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 4px;
+            padding: 8px 14px; margin-bottom: 14px; font-size: 13.5px; color: #3730a3;
+        }
+
+        .footer {
+            text-align: center; margin-top: 30px; padding-top: 15px;
+            border-top: 2px solid #333; font-size: 14px; color: #444;
+        }
+        .footer .end-text { font-weight: 600; margin-bottom: 10px; }
+        .footer .brand { margin-top: 8px; font-size: 13px; color: #666; }
+
+        @media print {
+            body { background: white; padding: 0; margin: 0; }
+            .wrap { box-shadow: none; padding: 20px 25px; max-width: 100%; }
+            .watermark span { font-size: 56px; }
+            .section-title, .marks-badge, .info-row, .student-info, .instructions, .assume-box {
+                -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark"><span>Learn with Kayes</span></div>
+
+    <div class="wrap">
+        <div class="header">
+            <h1>সাপ্তাহিক কুইজ পরীক্ষা</h1>
+            <h1>WEEKLY QUIZ EXAMINATION</h1>
+            <h2>পঞ্চম শ্রেণী (Class 5) — ক্যাডেট কলেজ প্রস্তুতি (Cadet College Preparation)</h2>
+            <div class="subtitle">বিষয়: গণিত ও বিজ্ঞান (Subjects: Mathematics &amp; Science)</div>
+        </div>
+
+        <div class="info-row">
+            <div><strong>সময় (Time):</strong> ২০ মিনিট (20 Minutes) — জমা দেওয়ার সময়সহ (including submission time)</div>
+            <div><strong>পূর্ণমান (Total Marks):</strong> ২০ (গণিত ১২ + বিজ্ঞান ৮)</div>
+        </div>
+
+        <div class="student-info">
+            <div>নাম (Name): </div>
+            <div>রোল (Roll): </div>
+            <div>শ্রেণী (Class): পঞ্চম (Five)</div>
+            <div>তারিখ (Date): </div>
+        </div>
+
+        <div class="instructions">
+            <strong>নির্দেশনা (Instructions):</strong> সকল প্রশ্নের উত্তর আলাদা খাতায় লিখতে হবে। গাণিতিক সমস্যার ক্ষেত্রে ধাপে ধাপে সমাধান দেখাতে হবে।<br>
+            (Write all answers in a separate notebook. For math problems, show all working steps clearly.)
+        </div>
+
+        <hr>
+
+        <!-- ==================== SECTION A: MATHEMATICS ==================== -->
+        <div class="section-title">গণিত (MATHEMATICS) — ১২ নম্বর (12 Marks) — সময়ের রূপান্তর (Time Conversion)</div>
+
+        <div class="assume-box">
+            <strong>ধরে নাও (Assume):</strong> ১ বছর = ৩৬৫ দিন, ১ মাস = ৩০ দিন, ১ সপ্তাহ = ৭ দিন, ১ দিন = ২৪ ঘণ্টা, ১ ঘণ্টা = ৬০ মিনিট, ১ মিনিট = ৬০ সেকেন্ড
+        </div>
+
+        <!-- Q1 -->
+        <div class="question">
+            <div class="question-text">
+                ১। একটি বিদ্যালয়ের গ্রীষ্মকালীন ছুটি ২ মাস ৩ সপ্তাহ ৫ দিন স্থায়ী হয়েছিল।
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(A school's summer vacation lasted 2 months, 3 weeks, and 5 days.)</div>
+            <div class="sub-question">
+                ছুটিটি মোট কত সেকেন্ড দীর্ঘ ছিল, তা ধাপে ধাপে (দিন → ঘণ্টা → মিনিট → সেকেন্ড) দেখিয়ে নির্ণয় কর।
+                <span class="eng">(Find, showing every conversion step, how many seconds the vacation lasted.)</span>
+            </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question">
+            <div class="question-text">
+                ২। রাকিব তার নানাবাড়িতে বেড়াতে গিয়ে মোট ২১,৯৬০ মিনিট অবস্থান করেছিল।
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Rakib stayed at his grandmother's house for a total of 21,960 minutes.)</div>
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> সে মোট কত ঘণ্টা অবস্থান করেছিল, তা নির্ণয় কর।
+                <span class="eng">(Find how many total hours he stayed.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> সে কত দিন কত ঘণ্টা অবস্থান করেছিল, তা নির্ণয় কর।
+                <span class="eng">(Find how many days and how many (remaining) hours he stayed.)</span>
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question">
+            <div class="question-text">
+                ৩। সাথী তার বড় ভাইয়ের চেয়ে ২ বছর ৪ মাস ১০ দিনের ছোট।
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Sathi is 2 years, 4 months, and 10 days younger than her older brother.)</div>
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> সাথী তার ভাইয়ের চেয়ে কত দিনের ছোট, তা নির্ণয় কর।
+                <span class="eng">(Find how many days younger Sathi is than her brother.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> সাথী তার ভাইয়ের চেয়ে কত ঘণ্টার ছোট, তা নির্ণয় কর।
+                <span class="eng">(Find how many hours younger Sathi is than her brother.)</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- ==================== SECTION B: SCIENCE ==================== -->
+        <div class="section-title">বিজ্ঞান (SCIENCE) — ৮ নম্বর (8 Marks) — অধ্যায় ৮: ভূমিরূপ (Chapter 8: Landforms)</div>
+
+        <!-- Q4 -->
+        <div class="question">
+            <div class="question-text">
+                ৪। ভূমিরূপ পরিবর্তনের কারণ সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <span class="marks-badge sci">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Answer the following questions about the causes of landform change:)</div>
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> ভূমিরূপ পরিবর্তনের যেকোনো দুটি প্রাকৃতিক কারণ উদাহরণসহ ব্যাখ্যা কর।
+                <span class="eng">(Explain, with examples, any two natural causes of landform change.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> ভূমিরূপ পরিবর্তনের যেকোনো দুটি মানবসৃষ্ট কারণ উদাহরণসহ ব্যাখ্যা কর।
+                <span class="eng">(Explain, with examples, any two human-made causes of landform change.)</span>
+            </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question">
+            <div class="question-text">
+                ৫। পাহাড়, পর্বত ও মালভূমি সম্পর্কে নিচের প্রশ্নগুলোর উত্তর দাও:
+                <span class="marks-badge sci">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Answer the following questions about hills, mountains, and plateaus:)</div>
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> পাহাড় ও পর্বতের মধ্যে দুটি পার্থক্য লেখ।
+                <span class="eng">(Write two differences between a hill and a mountain.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> মালভূমিকে কেন টেবিল্যান্ড বলা হয়? ব্যাখ্যা কর।
+                <span class="eng">(Why is a plateau called "tableland"? Explain.)</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="footer">
+            <div class="end-text">প্রশ্নপত্রের সমাপ্তি (End of Question Paper)</div>
+            <div class="brand">
+                <strong>Learn with Kayes</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
