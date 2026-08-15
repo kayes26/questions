@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 5 - Weekly Quiz | August 2026 | ক্যাডেট কলেজ প্রস্তুতি</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.8;
+            color: #222;
+        }
+
+        .watermark {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+        }
+        .watermark span {
+            transform: rotate(-25deg);
+            font-size: 64px;
+            font-weight: 900;
+            color: rgba(0,0,0,.10);
+            letter-spacing: .6px;
+            mix-blend-mode: multiply;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            border-radius: 2px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #333;
+            padding-bottom: 18px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #111;
+        }
+        .header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 2px;
+        }
+        .header .subtitle {
+            font-size: 14px;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 20px;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .student-info div {
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 4px;
+        }
+
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+            background: #333;
+            color: white;
+            padding: 9px 16px;
+            margin: 25px 0 18px 0;
+            letter-spacing: 0.3px;
+        }
+
+        .question {
+            margin-bottom: 22px;
+        }
+        .question-text {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 3px;
+            line-height: 1.7;
+        }
+        .question-eng {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .sub-question {
+            padding-left: 30px;
+            margin-bottom: 8px;
+            font-size: 14.5px;
+            line-height: 1.7;
+        }
+        .sub-question .eng {
+            font-size: 12.5px;
+            color: #666;
+            display: block;
+            font-style: italic;
+        }
+
+        .marks-badge {
+            float: right;
+            background: #28a745;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+
+        hr {
+            border: none;
+            border-top: 1.5px solid #ddd;
+            margin: 20px 0;
+        }
+
+        .instructions {
+            background: #fff9e6;
+            border: 1px solid #f0d060;
+            border-radius: 4px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #665500;
+        }
+        .instructions strong {
+            color: #994400;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0;
+            font-size: 13.5px;
+        }
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 6px 8px;
+            text-align: center;
+        }
+        th {
+            background: #f3f4f6;
+            font-weight: 700;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #333;
+            font-size: 14px;
+            color: #444;
+        }
+        .footer .end-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .footer .brand {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        @media print {
+            body { background: white; padding: 0; margin: 0; }
+            .wrap { box-shadow: none; padding: 20px 25px; max-width: 100%; }
+            .watermark span { font-size: 56px; }
+            .section-title,
+            .marks-badge,
+            .info-row,
+            .student-info,
+            .instructions,
+            th {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">
+        <span>Learn with Kayes</span>
+    </div>
+
+    <div class="wrap">
+        <div class="header">
+            <h1>সাপ্তাহিক কুইজ পরীক্ষা</h1>
+            <h1>WEEKLY QUIZ EXAMINATION</h1>
+            <h2>পঞ্চম শ্রেণী (Class 5) — ক্যাডেট কলেজ প্রস্তুতি (Cadet College Preparation)</h2>
+            <div class="subtitle">আগস্ট ২০২৬ (August 2026) — বিষয়: গণিত ও বিজ্ঞান (Subjects: Mathematics & Science)</div>
+        </div>
+
+        <div class="info-row">
+            <div><strong>সময় (Time):</strong> ২০ মিনিট (20 Minutes) — জমা দেওয়ার সময়সহ (including submission time)</div>
+            <div><strong>পূর্ণমান (Total Marks):</strong> ২০</div>
+        </div>
+
+        <div class="student-info">
+            <div>নাম (Name): </div>
+            <div>রোল (Roll): </div>
+            <div>শ্রেণী (Class): পঞ্চম (Five)</div>
+            <div>তারিখ (Date): </div>
+        </div>
+
+        <div class="instructions">
+            <strong>নির্দেশনা (Instructions):</strong> সকল প্রশ্নের উত্তর আলাদা খাতায় লিখতে হবে। যেখানে হিসাবের ধাপ প্রয়োজন, তা স্পষ্টভাবে দেখাতে হবে।<br>
+            (Write all answers in a separate notebook. Where working/steps are needed, show them clearly.)
+        </div>
+
+        <hr>
+
+        <!-- ==================== SECTION A: MATHEMATICS ==================== -->
+        <div class="section-title">গণিত (MATHEMATICS) — ১২ নম্বর (12 Marks)</div>
+
+        <!-- Q1: Bangla Calendar -->
+        <div class="question">
+            <div class="question-text">
+                ১। বাংলা ক্যালেন্ডার সম্পর্কিত নিচের প্রশ্নগুলোর উত্তর দাও:
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Answer the following questions related to the Bangla calendar:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> নাফিসের জন্মদিন ২২শে আশ্বিন। তার জন্মদিনের ২৮ দিন পর কোন তারিখ হবে? হিসাব দেখাও।
+                <span class="eng">(Nafis's birthday is 22 Ashwin. What date will it be 28 days after his birthday? Show your working.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> একটি অধিবর্ষে (leap year) বাংলা বছরে মোট কতদিন থাকে এবং কোন মাসটি সাধারণ বছরের চেয়ে ১ দিন বেশি গণনা করা হয়?
+                <span class="eng">(In a Bangla leap year, how many total days are there, and which month is counted 1 day more than in a normal year?)</span>
+            </div>
+        </div>
+
+        <!-- Q2: Age Calculation -->
+        <div class="question">
+            <div class="question-text">
+                ২। বয়স নির্ণয় করো (বছর-মাস-দিন পদ্ধতিতে বিয়োগ করে হিসাব দেখাও):
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Find the age — show your working using the years-months-days subtraction method:)</div>
+
+            <div class="sub-question">
+                তানভীরের জন্ম তারিখ ১৭ই মার্চ, ২০১৪ খ্রিস্টাব্দ। ২০২৬ সালের ৫ই সেপ্টেম্বর তারিখে তার বয়স কত বছর, কত মাস ও কত দিন হবে?
+                <span class="eng">(Tanvir was born on 17 March, 2014. On 5 September, 2026, what will his age be, in years, months, and days?)</span>
+            </div>
+        </div>
+
+        <!-- Q3: 24-hour time & duration -->
+        <div class="question">
+            <div class="question-text">
+                ৩। সময়সূচি সম্পর্কিত নিচের প্রশ্নগুলোর উত্তর দাও:
+                <span class="marks-badge">৪ নম্বর / 4 Marks</span>
+            </div>
+            <div class="question-eng">(Answer the following questions related to time schedules:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> ৯:৪৫ অপরাহ্ণ (9:45 PM)-কে ২৪ ঘণ্টার সময়সূচিতে প্রকাশ করো।
+                <span class="eng">(Express 9:45 PM in the 24-hour time format.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> একটি ট্রেন ঢাকা থেকে ১৮:৩৫ টায় ছাড়ে এবং পরদিন ভোর ০৩:২০ টায় গন্তব্যে পৌঁছায়। ট্রেনটির মোট ভ্রমণ সময় কত ঘণ্টা কত মিনিট? হিসাব দেখাও।
+                <span class="eng">(A train leaves Dhaka at 18:35 and arrives at its destination at 03:20 the next morning. What is the total travel time in hours and minutes? Show your working.)</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- ==================== SECTION B: SCIENCE ==================== -->
+        <div class="section-title">বিজ্ঞান (SCIENCE) — ৮ নম্বর (8 Marks)</div>
+
+        <div class="question">
+            <div class="question-text">
+                ৪। পরিবেশ দূষণ ও সংরক্ষণ সম্পর্কিত নিচের প্রশ্নগুলোর উত্তর দাও:
+                <span class="marks-badge">৮ নম্বর / 8 Marks</span>
+            </div>
+            <div class="question-eng">(Answer the following questions about environmental pollution and conservation:)</div>
+
+            <div class="sub-question">
+                <strong>ক) [২ নম্বর]</strong> মাটি দূষণ ও পানি দূষণের মধ্যে দুটি প্রধান পার্থক্য লেখো।
+                <span class="eng">(Write two main differences between soil pollution and water pollution.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>খ) [২ নম্বর]</strong> বায়ু দূষণের ফলে সৃষ্ট দুটি রোগের নাম লেখো এবং বায়ু দূষণ কীভাবে পৃথিবীর তাপমাত্রা বৃদ্ধি করে তা সংক্ষেপে ব্যাখ্যা করো।
+                <span class="eng">(Name two diseases caused by air pollution, and briefly explain how air pollution increases the earth's temperature.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>গ) [২ নম্বর]</strong> মাটি দূষণ রোধে কৃষকরা কী কী পদক্ষেপ নিতে পারে? তিনটি উপায় লেখো।
+                <span class="eng">(What steps can farmers take to prevent soil pollution? Write three methods.)</span>
+            </div>
+            <div class="sub-question">
+                <strong>ঘ) [২ নম্বর]</strong> "শিল্পকারখানার বর্জ্য সরাসরি নদীতে ফেললে পরিবেশের ভারসাম্য নষ্ট হয়" — উক্তিটি ব্যাখ্যা করো।
+                <span class="eng">(Explain the statement: "Discharging industrial waste directly into rivers destroys the balance of the environment.")</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="footer">
+            <div class="end-text">প্রশ্নপত্রের সমাপ্তি (End of Question Paper)</div>
+            <div class="brand">
+                <strong>Md Kayes</strong><br>
+                <strong>Learn with Kayes</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
